@@ -99,7 +99,7 @@ const title = computed(() => {
       <td>
         <em>{{ item.label }}</em>
       </td>
-      <td>
+      <td v-if="item.cell">
         <TextWithHighlights :highlights="item.cell.highlights" :text="item.cell.text" />
       </td>
     </tr>
@@ -110,7 +110,7 @@ const title = computed(() => {
         <td>
           <em>{{ subItem.label }} </em>
         </td>
-        <td>
+        <td v-if="subItem.cell">
           <TextWithHighlights :highlights="subItem.cell.highlights" :text="subItem.cell.text" />
         </td>
       </template>
@@ -122,7 +122,7 @@ const title = computed(() => {
         <td>
           <em>{{ subItem.label }} </em>
         </td>
-        <td>
+        <td v-if="subItem.cell">
           <TextWithHighlights :highlights="subItem.cell.highlights" :text="subItem.cell.text" />
         </td>
       </template>

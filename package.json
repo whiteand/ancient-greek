@@ -19,6 +19,7 @@
     "@vueuse/core": "^14.3.0",
     "grid-layout-plus": "^1.1.1",
     "pinia": "^3.0.4",
+    "valibot": "^1.4.1",
     "vue": "beta",
     "vue-router": "^5.0.4"
   },
@@ -42,6 +43,7 @@
     "oxlint": "~1.60.0",
     "typescript": "~6.0.0",
     "vite": "^8.0.8",
+    "vite-plugin-markdown": "^2.2.0",
     "vite-plugin-singlefile": "^2.3.3",
     "vite-plugin-vue-devtools": "^8.1.1",
     "vitest": "^4.1.4",

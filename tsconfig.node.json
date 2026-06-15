@@ -17,6 +17,10 @@
     "types": [
       "node"
     ],
+    "lib": [
+      "esnext",
+      "dom"
+    ],
     // Disable emitting output during `vue-tsc --build`, which is used for type-checking only.
     "noEmit": true,
     // `vue-tsc --build` produces a .tsbuildinfo file for incremental type-checking.

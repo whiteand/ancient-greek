@@ -13,7 +13,6 @@ export function usePanelWidth(gridColsSize: MaybeRefOrGetter<number>) {
 
     // w = COLS * collSize + GAP_SIZE * GAPS + PADDINGS * PADDING_SIZE
     const collSize = (width.value - GAP_SIZE * GAPS - PADDING_SIZE * PADDINGS) / COLS;
-    console.log(collSize);
     const widths = toValue(gridColsSize);
     return collSize * widths + (widths - 1) * GAP_SIZE;
   });

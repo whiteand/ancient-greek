@@ -1,5 +1,12 @@
 import type { LayoutItem } from "grid-layout-plus";
 import type { TNumber, TPerson } from "../types/index.ts";
+import * as v from "valibot";
+import * as presentActiveIndicativeWithBaseOnA from "@/content/verbs/present-active-indicative-with-base-on-a.md";
+import * as presentActiveIndicativeWithBaseOnO from "@/content/verbs/present-active-indicative-with-base-on-o.md";
+import * as presentActiveIndicativeWithBaseOnE from "@/content/verbs/present-active-indicative-with-base-on-e.md";
+import * as presentMedPassiveIndicativeWithBaseOnA from "@/content/verbs/present-med-passive-indicative-with-base-on-a.md";
+import * as presentMedPassiveIndicativeWithBaseOnO from "@/content/verbs/present-med-passive-indicative-with-base-on-o.md";
+import * as presentMedPassiveIndicativeWithBaseOnE from "@/content/verbs/present-med-passive-indicative-with-base-on-e.md";
 
 export type VerbForm = {
   person: TPerson;
@@ -18,357 +25,115 @@ export interface VerbFormTable {
   layoutItem: LayoutItem;
   layoutRules: TLayoutRule[];
 }
-const LAYOUT_RULES: TLayoutRule[] = [
-  {
-    width: 452,
-    height: 45,
-    layout: "3x2",
-  },
-  {
-    width: 333,
-    height: 66,
-    layout: "2x3",
-  },
-  {
-    width: 202,
-    height: 190,
-    layout: "1x6",
-  },
-];
 
-export const PRESENT_ACTIVE_INDICATIVE_VERB_FORMS_WITH_EPSILON: VerbFormTable = {
-  layoutRules: LAYOUT_RULES,
-  layoutItem: {
-    x: 0,
-    y: 0,
-    w: 2,
-    h: 6,
-    minW: 2,
-    maxW: 6,
-    maxH: 6,
-    minH: 3,
-    i: "present-active-indicative-epsilon",
-    static: false,
-  },
-  titles: ["Тепер. індикатив акт. на -ε"],
-  forms: [
-    {
-      person: 1,
-      number: "singular",
-      text: "φιλῶ < φιλέω",
-      highlights: [
-        [3, 4],
-        [10, 12],
-      ],
-    },
-    {
-      person: 2,
-      number: "singular",
-      text: "φιλεῖς",
-      highlights: [[3, 6]],
-    },
-    {
-      person: 3,
-      number: "singular",
-      text: "φιλεῖ",
-      highlights: [[3, 5]],
-    },
-    {
-      person: 1,
-      number: "plural",
-      text: "φιλοῦμεν",
-      highlights: [[3, 8]],
-    },
-    {
-      person: 2,
-      number: "plural",
-      text: "φιλεῖτε",
-      highlights: [[3, 7]],
-    },
-    {
-      person: 3,
-      number: "plural",
-      text: "φιλοῦσι(ν)",
-      highlights: [[3, 10]],
-    },
-  ],
-};
-export const PRESENT_ACTIVE_INDICATIVE_VERB_FORMS_WITH_OMICRON: VerbFormTable = {
-  layoutRules: LAYOUT_RULES,
-  layoutItem: {
-    x: 2,
-    y: 0,
-    w: 2,
-    h: 6,
-    minW: 2,
-    maxW: 6,
-    maxH: 6,
-    minH: 3,
-    i: "present-active-indicative-omikron",
-    static: false,
-  },
-  titles: ["Тепер. індикатив акт. на -o"],
-  forms: [
-    {
-      person: 1,
-      number: "singular",
-      text: "δηλῶ < δηλόω",
-      highlights: [
-        [3, 4],
-        [10, 12],
-      ],
-    },
-    {
-      person: 2,
-      number: "singular",
-      text: "δηλοῖς",
-      highlights: [[3, 6]],
-    },
-    {
-      person: 3,
-      number: "singular",
-      text: "δηλοῖ",
-      highlights: [[3, 5]],
-    },
-    {
-      person: 1,
-      number: "plural",
-      text: "δηλοῦμεν",
-      highlights: [[3, 8]],
-    },
-    {
-      person: 2,
-      number: "plural",
-      text: "δηλοῦτε",
-      highlights: [[3, 7]],
-    },
-    {
-      person: 3,
-      number: "plural",
-      text: "δηλοῦσι(ν)",
-      highlights: [[3, 10]],
-    },
-  ],
-};
-export const PRESENT_ACTIVE_INDICATIVE_VERB_FORMS_WITH_ALPHA: VerbFormTable = {
-  layoutRules: LAYOUT_RULES,
-  layoutItem: {
-    x: 4,
-    y: 0,
-    w: 2,
-    h: 6,
-    minW: 2,
-    maxW: 6,
-    maxH: 6,
-    minH: 3,
-    i: "present-active-indicative-alpha",
-    static: false,
-  },
-  titles: ["Тепер. індикатив акт. на -α"],
-  forms: [
-    {
-      person: 1,
-      number: "singular",
-      text: "τιμῶ < τιμάω",
-      highlights: [
-        [3, 4],
-        [10, 12],
-      ],
-    },
-    {
-      person: 2,
-      number: "singular",
-      text: "τιμᾷς",
-      highlights: [[3, 6]],
-    },
-    {
-      person: 3,
-      number: "singular",
-      text: "τιμᾷ",
-      highlights: [[3, 5]],
-    },
-    {
-      person: 1,
-      number: "plural",
-      text: "τιμῶμεν",
-      highlights: [[3, 8]],
-    },
-    {
-      person: 2,
-      number: "plural",
-      text: "τιμᾶτε",
-      highlights: [[3, 7]],
-    },
-    {
-      person: 3,
-      number: "plural",
-      text: "τιμῶσι(ν)",
-      highlights: [[3, 10]],
-    },
-  ],
-};
-export const PRESENT_MEDIO_PASIVUM_INDICATIVE_VERB_FORMS_WITH_ELIPSON: VerbFormTable = {
-  layoutRules: LAYOUT_RULES,
-  layoutItem: {
-    x: 6,
-    y: 0,
-    w: 2,
-    h: 6,
-    minW: 2,
-    maxW: 6,
-    maxH: 6,
-    minH: 3,
-    i: "present-med-pas-indicative-epsilon",
-    static: false,
-  },
-  titles: ["Тепер. медіо-пасив на -ε"],
-  forms: [
-    {
-      person: 1,
-      number: "singular",
-      text: "φιλοῦμαι",
-      highlights: [[3, 8]],
-    },
-    {
-      person: 2,
-      number: "singular",
-      text: "φιλῆ/-εῖ",
-      highlights: [
-        [3, 4],
-        [5, 8],
-      ],
-    },
-    {
-      person: 3,
-      number: "singular",
-      text: "φιλεῖται",
-      highlights: [[3, 8]],
-    },
-    {
-      person: 1,
-      number: "plural",
-      text: "φιλούμεθα",
-      highlights: [[3, 9]],
-    },
-    {
-      person: 2,
-      number: "plural",
-      text: "φιλεῖσθε",
-      highlights: [[3, 8]],
-    },
-    {
-      person: 3,
-      number: "plural",
-      text: "φιλοῦνται",
-      highlights: [[3, 9]],
-    },
-  ],
-};
-export const PRESENT_MEDIO_PASIVUM_INDICATIVE_VERB_FORMS_WITH_OMICRON: VerbFormTable = {
-  layoutRules: LAYOUT_RULES,
-  layoutItem: {
-    x: 8,
-    y: 0,
-    w: 2,
-    h: 6,
-    minW: 2,
-    maxW: 6,
-    maxH: 6,
-    minH: 3,
-    i: "present-med-pas-indicative-omikron",
-    static: false,
-  },
-  titles: ["Тепер. медіо-пасив на -ο"],
-  forms: [
-    {
-      person: 1,
-      number: "singular",
-      text: "δηλοῦμαι",
-      highlights: [[3, 8]],
-    },
-    {
-      person: 2,
-      number: "singular",
-      text: "δηλοῖ",
-      highlights: [[3, 5]],
-    },
-    {
-      person: 3,
-      number: "singular",
-      text: "δηλοῦται",
-      highlights: [[3, 8]],
-    },
-    {
-      person: 1,
-      number: "plural",
-      text: "δηλούμεθα",
-      highlights: [[3, 9]],
-    },
-    {
-      person: 2,
-      number: "plural",
-      text: "δηλοῦσθε",
-      highlights: [[3, 8]],
-    },
-    {
-      person: 3,
-      number: "plural",
-      text: "δελοῦνται",
-      highlights: [[3, 9]],
-    },
-  ],
-};
-export const PRESENT_MEDIO_PASIVUM_INDICATIVE_VERB_FORMS_WITH_ALPHA: VerbFormTable = {
-  layoutRules: LAYOUT_RULES,
-  layoutItem: {
-    x: 10,
-    y: 0,
-    w: 2,
-    h: 6,
-    minW: 2,
-    maxW: 6,
-    maxH: 6,
-    minH: 3,
-    i: "present-med-pas-indicative-alpha",
-    static: false,
-  },
-  titles: ["Тепер. медіо-пасив на -α"],
-  forms: [
-    {
-      person: 1,
-      number: "singular",
-      text: "τιμῶμαι",
-      highlights: [[3, 7]],
-    },
-    {
-      person: 2,
-      number: "singular",
-      text: "τιμᾷ",
-      highlights: [[3, 4]],
-    },
-    {
-      person: 3,
-      number: "singular",
-      text: "τιμᾶται",
-      highlights: [[3, 8]],
-    },
-    {
-      person: 1,
-      number: "plural",
-      text: "τιμώμεθα",
-      highlights: [[3, 9]],
-    },
-    {
-      person: 2,
-      number: "plural",
-      text: "τιμᾶσθε",
-      highlights: [[3, 8]],
-    },
-    {
-      person: 3,
-      number: "plural",
-      text: "τιμῶνται",
-      highlights: [[3, 9]],
-    },
-  ],
-};
+const verbFormTableAttributesSchema = v.object({
+  titles: v.array(v.string()),
+  layoutRules: v.array(
+    v.object({
+      layout: v.union([v.literal("1x6"), v.literal("2x3"), v.literal("3x2")]),
+      width: v.number(),
+      height: v.number(),
+    }),
+  ),
+  layoutItem: v.object({
+    i: v.pipe(v.string(), v.minLength(1)),
+    x: v.optional(v.pipe(v.number(), v.integer(), v.minValue(0), v.maxValue(11)), 0),
+    y: v.optional(v.pipe(v.number(), v.integer(), v.minValue(0)), 0),
+    w: v.optional(v.pipe(v.number(), v.integer(), v.minValue(0), v.maxValue(12)), 2),
+    minW: v.optional(v.pipe(v.number(), v.integer(), v.minValue(0), v.maxValue(12))),
+    maxW: v.optional(v.pipe(v.number(), v.integer(), v.minValue(0), v.maxValue(12))),
+    h: v.optional(v.pipe(v.number(), v.integer(), v.minValue(0)), 2),
+    minH: v.optional(v.pipe(v.number(), v.integer(), v.minValue(0))),
+    maxH: v.optional(v.pipe(v.number(), v.integer(), v.minValue(0))),
+    static: v.optional(v.boolean(), false),
+  }),
+});
+
+function takeText(dom: Element, selector: string): string {
+  const res = dom.querySelectorAll(selector);
+  if (res.length > 1) {
+    throw new Error(`Not unique results: ` + selector);
+  }
+  if (res.length == 0) {
+    throw new Error(`No results: ` + selector);
+  }
+  return res[0]?.textContent ?? "";
+}
+
+const personTextSchema = v.pipe(
+  v.string(),
+  v.toNumber(),
+  v.union([v.literal(1), v.literal(2), v.literal(3)]),
+);
+const numberTextSchema = v.union([v.literal("singular"), v.literal("plural")]);
+
+function parseVerbForms(html: string): VerbForm[] {
+  const parent = document.createElement("div");
+  parent.innerHTML = html;
+
+  console.assert(takeText(parent, "table thead tr:first-child th:nth-child(1)") === "person");
+  console.assert(takeText(parent, "table thead tr:first-child th:nth-child(2)") === "number");
+  console.assert(takeText(parent, "table thead tr:first-child th:nth-child(3)") === "form");
+  const trs = parent.querySelectorAll("tbody > tr");
+  console.assert(trs.length === 6, "expected 6 forms");
+  const res = [] as VerbForm[];
+  for (const tr of trs) {
+    console.assert(tr.children.length === 3);
+    const person = v.parse(personTextSchema, takeText(tr, "td:nth-child(1)"));
+    const number = v.parse(numberTextSchema, takeText(tr, "td:nth-child(2)"));
+    const formNode = tr.querySelector("td:nth-child(3)");
+
+    if (!formNode) throw new Error();
+
+    let text = "";
+    const highlights = [] as [number, number][];
+    for (let p = formNode.firstChild; p != null; p = p.nextSibling) {
+      if (p.nodeType === document.TEXT_NODE) {
+        text += p.textContent;
+        continue;
+      }
+      if (p.nodeType === document.ELEMENT_NODE && p.nodeName === "STRONG") {
+        const start = text.length;
+        text += p.textContent;
+        const end = text.length;
+        highlights.push([start, end]);
+        continue;
+      }
+      throw new Error("not implemented");
+    }
+
+    res.push({
+      highlights,
+      number,
+      person,
+      text,
+    });
+  }
+
+  return res;
+}
+
+function parseVerbFormTable({
+  attributes,
+  html,
+}: {
+  attributes: Record<string, unknown>;
+  html: string;
+}): VerbFormTable {
+  const x = v.parse(verbFormTableAttributesSchema, attributes);
+  return {
+    titles: x.titles,
+    layoutRules: x.layoutRules,
+    layoutItem: x.layoutItem,
+    forms: parseVerbForms(html),
+  };
+}
+
+export const ALL = [
+  parseVerbFormTable(presentActiveIndicativeWithBaseOnE),
+  parseVerbFormTable(presentActiveIndicativeWithBaseOnO),
+  parseVerbFormTable(presentActiveIndicativeWithBaseOnA),
+  parseVerbFormTable(presentMedPassiveIndicativeWithBaseOnE),
+  parseVerbFormTable(presentMedPassiveIndicativeWithBaseOnO),
+  parseVerbFormTable(presentMedPassiveIndicativeWithBaseOnA),
+];

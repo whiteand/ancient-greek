@@ -9,10 +9,12 @@
     "src/**/__tests__/*"
   ],
   "compilerOptions": {
+    "target": "esnext",
     "lib": [
       "esnext",
       "dom"
     ],
+    "skipLibCheck": true,
     // Extra safety for array and object lookups, but may have false positives.
     "noUncheckedIndexedAccess": true,
     // Path mapping for cleaner imports.
