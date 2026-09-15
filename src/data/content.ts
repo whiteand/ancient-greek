@@ -19,6 +19,7 @@ import * as prepositionSyn from "@/content/prepositions/syn.md";
 import * as presentActiveIndicativeWithBaseOnA from "@/content/verbs/present-active-indicative-with-base-on-a.md";
 import * as presentActiveIndicativeWithBaseOnE from "@/content/verbs/present-active-indicative-with-base-on-e.md";
 import * as presentActiveIndicativeWithBaseOnO from "@/content/verbs/present-active-indicative-with-base-on-o.md";
+import * as presentMedPassiveIndicativeWithoutBase from "@/content/verbs/present-active-indicative-without-ending.md";
 import * as presentMedPassiveIndicativeWithBaseOnA from "@/content/verbs/present-med-passive-indicative-with-base-on-a.md";
 import * as presentMedPassiveIndicativeWithBaseOnE from "@/content/verbs/present-med-passive-indicative-with-base-on-e.md";
 import * as presentMedPassiveIndicativeWithBaseOnO from "@/content/verbs/present-med-passive-indicative-with-base-on-o.md";
@@ -253,35 +254,37 @@ function* layoutAt<T extends { layoutItem: LayoutItem }>(
   }
 }
 
-export const ALL = [
+export const VERBS = layoutAt(0, 0, [
   parseVerbFormTable(presentActiveIndicativeWithBaseOnE),
   parseVerbFormTable(presentActiveIndicativeWithBaseOnO),
   parseVerbFormTable(presentActiveIndicativeWithBaseOnA),
+  parseVerbFormTable(presentMedPassiveIndicativeWithoutBase),
   parseVerbFormTable(presentMedPassiveIndicativeWithBaseOnE),
   parseVerbFormTable(presentMedPassiveIndicativeWithBaseOnO),
   parseVerbFormTable(presentMedPassiveIndicativeWithBaseOnA),
-  ...layoutAt(
-    0,
-    6,
-    [
-      parsePrepositionTable(prepositionAmphi),
-      parsePrepositionTable(prepositionAna),
-      parsePrepositionTable(prepositionAnti),
-      parsePrepositionTable(prepositionApo),
-      parsePrepositionTable(prepositionDia),
-      parsePrepositionTable(prepositionEis),
-      parsePrepositionTable(prepositionEk),
-      parsePrepositionTable(prepositionEn),
-      parsePrepositionTable(prepositionEpi),
-      parsePrepositionTable(prepositionKata),
-      parsePrepositionTable(prepositionMeta),
-      parsePrepositionTable(prepositionPara),
-      parsePrepositionTable(prepositionPeri),
-      parsePrepositionTable(prepositionPro),
-      parsePrepositionTable(prepositionPros),
-      parsePrepositionTable(prepositionSyn),
-      parsePrepositionTable(prepositionHyper),
-      parsePrepositionTable(prepositionHypo),
-    ].toSorted((a, b) => a.preposition.localeCompare(b.preposition)),
-  ),
-];
+]).toArray();
+
+export const PREPOSITIONS = layoutAt(
+  0,
+  0,
+  [
+    parsePrepositionTable(prepositionAmphi),
+    parsePrepositionTable(prepositionAna),
+    parsePrepositionTable(prepositionAnti),
+    parsePrepositionTable(prepositionApo),
+    parsePrepositionTable(prepositionDia),
+    parsePrepositionTable(prepositionEis),
+    parsePrepositionTable(prepositionEk),
+    parsePrepositionTable(prepositionEn),
+    parsePrepositionTable(prepositionEpi),
+    parsePrepositionTable(prepositionKata),
+    parsePrepositionTable(prepositionMeta),
+    parsePrepositionTable(prepositionPara),
+    parsePrepositionTable(prepositionPeri),
+    parsePrepositionTable(prepositionPro),
+    parsePrepositionTable(prepositionPros),
+    parsePrepositionTable(prepositionSyn),
+    parsePrepositionTable(prepositionHyper),
+    parsePrepositionTable(prepositionHypo),
+  ].toSorted((a, b) => a.preposition.localeCompare(b.preposition)),
+).toArray();

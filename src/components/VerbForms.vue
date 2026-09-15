@@ -93,7 +93,7 @@ const title = computed(() => {
 </script>
 
 <template>
-  <h2>{{ title }}</h2>
+  <h3 class="px-2">{{ title }}</h3>
   <table v-if="layout === '1x6'">
     <tr v-for="item in LAYOUT_1_X_6" :key="item.label">
       <td>
@@ -131,10 +131,6 @@ const title = computed(() => {
 </template>
 
 <style lang="css" scoped>
-h2 {
-  padding: 0 10px;
-}
-
 em {
   color: #333;
 }
