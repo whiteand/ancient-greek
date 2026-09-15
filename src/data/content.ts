@@ -1,12 +1,15 @@
-import type { LayoutItem } from "grid-layout-plus";
-import type { TNumber, TPerson } from "../types/index.ts";
-import * as v from "valibot";
+import * as prepositionEpi from "@/content/prepositions/epi.md";
 import * as presentActiveIndicativeWithBaseOnA from "@/content/verbs/present-active-indicative-with-base-on-a.md";
-import * as presentActiveIndicativeWithBaseOnO from "@/content/verbs/present-active-indicative-with-base-on-o.md";
 import * as presentActiveIndicativeWithBaseOnE from "@/content/verbs/present-active-indicative-with-base-on-e.md";
+import * as presentActiveIndicativeWithBaseOnO from "@/content/verbs/present-active-indicative-with-base-on-o.md";
 import * as presentMedPassiveIndicativeWithBaseOnA from "@/content/verbs/present-med-passive-indicative-with-base-on-a.md";
-import * as presentMedPassiveIndicativeWithBaseOnO from "@/content/verbs/present-med-passive-indicative-with-base-on-o.md";
 import * as presentMedPassiveIndicativeWithBaseOnE from "@/content/verbs/present-med-passive-indicative-with-base-on-e.md";
+import * as presentMedPassiveIndicativeWithBaseOnO from "@/content/verbs/present-med-passive-indicative-with-base-on-o.md";
+import type { LayoutItem } from "grid-layout-plus";
+import * as v from "valibot";
+import type { TNumber, TPerson } from "../types/index.js";
+import { takeText } from "@/data/parse/takeText.js";
+import { parseTable } from "@/data/parse/parseTable.js";
 
 export type VerbForm = {
   person: TPerson;
@@ -20,45 +23,41 @@ export type VerbFormLayout = "1x6" | "2x3" | "3x2";
 export type TLayoutRule = { width: number; height: number; layout: VerbFormLayout };
 
 export interface VerbFormTable {
+  type: "verb";
   titles: string[];
   forms: VerbForm[];
   layoutItem: LayoutItem;
   layoutRules: TLayoutRule[];
 }
 
-const verbFormTableAttributesSchema = v.object({
-  titles: v.array(v.string()),
-  layoutRules: v.array(
-    v.object({
-      layout: v.union([v.literal("1x6"), v.literal("2x3"), v.literal("3x2")]),
-      width: v.number(),
-      height: v.number(),
-    }),
-  ),
-  layoutItem: v.object({
-    i: v.pipe(v.string(), v.minLength(1)),
-    x: v.optional(v.pipe(v.number(), v.integer(), v.minValue(0), v.maxValue(11)), 0),
-    y: v.optional(v.pipe(v.number(), v.integer(), v.minValue(0)), 0),
-    w: v.optional(v.pipe(v.number(), v.integer(), v.minValue(0), v.maxValue(12)), 2),
-    minW: v.optional(v.pipe(v.number(), v.integer(), v.minValue(0), v.maxValue(12))),
-    maxW: v.optional(v.pipe(v.number(), v.integer(), v.minValue(0), v.maxValue(12))),
-    h: v.optional(v.pipe(v.number(), v.integer(), v.minValue(0)), 2),
-    minH: v.optional(v.pipe(v.number(), v.integer(), v.minValue(0))),
-    maxH: v.optional(v.pipe(v.number(), v.integer(), v.minValue(0))),
-    static: v.optional(v.boolean(), false),
+const tableLayoutRules = v.array(
+  v.object({
+    layout: v.union([v.literal("1x6"), v.literal("2x3"), v.literal("3x2")]),
+    width: v.number(),
+    height: v.number(),
   }),
+);
+
+const titles = v.array(v.string());
+
+const layoutItem = v.object({
+  i: v.pipe(v.string(), v.minLength(1)),
+  x: v.optional(v.pipe(v.number(), v.integer(), v.minValue(0), v.maxValue(11)), 0),
+  y: v.optional(v.pipe(v.number(), v.integer(), v.minValue(0)), 0),
+  w: v.optional(v.pipe(v.number(), v.integer(), v.minValue(0), v.maxValue(12)), 2),
+  minW: v.optional(v.pipe(v.number(), v.integer(), v.minValue(0), v.maxValue(12))),
+  maxW: v.optional(v.pipe(v.number(), v.integer(), v.minValue(0), v.maxValue(12))),
+  h: v.optional(v.pipe(v.number(), v.integer(), v.minValue(0)), 2),
+  minH: v.optional(v.pipe(v.number(), v.integer(), v.minValue(0))),
+  maxH: v.optional(v.pipe(v.number(), v.integer(), v.minValue(0))),
+  static: v.optional(v.boolean(), false),
 });
 
-function takeText(dom: Element, selector: string): string {
-  const res = dom.querySelectorAll(selector);
-  if (res.length > 1) {
-    throw new Error(`Not unique results: ` + selector);
-  }
-  if (res.length == 0) {
-    throw new Error(`No results: ` + selector);
-  }
-  return res[0]?.textContent ?? "";
-}
+const verbFormTableAttributesSchema = v.object({
+  titles: titles,
+  layoutRules: tableLayoutRules,
+  layoutItem: layoutItem,
+});
 
 const personTextSchema = v.pipe(
   v.string(),
@@ -122,10 +121,74 @@ function parseVerbFormTable({
 }): VerbFormTable {
   const x = v.parse(verbFormTableAttributesSchema, attributes);
   return {
+    type: "verb",
     titles: x.titles,
     layoutRules: x.layoutRules,
     layoutItem: x.layoutItem,
     forms: parseVerbForms(html),
+  };
+}
+
+const prepositionAttributes = v.object({
+  titles: titles,
+  layoutItem: layoutItem,
+  preposition: v.pipe(v.string(), v.minLength(1)),
+});
+
+const GREEK_CASES = ["nominative", "genitive", "dative", "accusative", "vocative"] as const;
+export type GreekCase = (typeof GREEK_CASES)[number];
+
+export type PrepositionCase = {
+  case: GreekCase;
+  meaning: string;
+};
+
+type PrepositionBlock = {
+  type: "preposition";
+  titles: string[];
+  layoutItem: LayoutItem;
+  preposition: string;
+  cases: PrepositionCase[];
+};
+
+const caseSchema = v.pipe(v.string(), v.union(GREEK_CASES.map((c) => v.literal(c))));
+const meaningSchema = v.pipe(v.string(), v.minLength(1));
+
+function parsePrepositionCases(html: string): PrepositionCase[] {
+  const parent = document.createElement("div");
+  parent.innerHTML = html;
+
+  return parseTable(
+    {
+      cols: [
+        {
+          name: "case",
+          parseValue: (text) => v.parse(caseSchema, text),
+        },
+        {
+          name: "meaning",
+          parseValue: (text) => v.parse(meaningSchema, text),
+        },
+      ],
+    },
+    parent,
+  );
+}
+
+function parsePrepositionTable({
+  attributes,
+  html,
+}: {
+  attributes: Record<string, unknown>;
+  html: string;
+}): PrepositionBlock {
+  const x = v.parse(prepositionAttributes, attributes);
+  return {
+    type: "preposition",
+    titles: x.titles,
+    layoutItem: x.layoutItem,
+    preposition: x.preposition,
+    cases: parsePrepositionCases(html),
   };
 }
 
@@ -136,4 +199,5 @@ export const ALL = [
   parseVerbFormTable(presentMedPassiveIndicativeWithBaseOnE),
   parseVerbFormTable(presentMedPassiveIndicativeWithBaseOnO),
   parseVerbFormTable(presentMedPassiveIndicativeWithBaseOnA),
+  parsePrepositionTable(prepositionEpi),
 ];

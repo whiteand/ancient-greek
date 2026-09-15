@@ -5,9 +5,11 @@ import vue from "@vitejs/plugin-vue";
 import vueDevTools from "vite-plugin-vue-devtools";
 import { viteSingleFile } from "vite-plugin-singlefile";
 import { plugin as mdPlugin, Mode as MarkdownMode } from "vite-plugin-markdown";
+import tailwindcss from "@tailwindcss/vite";
 
 const plugins = [
   vue(),
+  tailwindcss(),
   vueDevTools(),
   viteSingleFile(),
   mdPlugin({ mode: [MarkdownMode.HTML] }), //

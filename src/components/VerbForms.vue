@@ -1,6 +1,6 @@
 <script setup lang="ts">
-import { usePanelHeight, usePanelWidth } from '@/composables/usePanelSize.ts'
-import { type VerbForm, type VerbFormLayout, type VerbFormTable } from '@/data/verbs.ts'
+import { usePanelHeight, usePanelWidth } from '@/composables/usePanelSize'
+import { type VerbForm, type VerbFormLayout, type VerbFormTable } from '@/data/content.js'
 import type { TNumber, TPerson } from '@/types'
 import { computed } from 'vue'
 import TextWithHighlights from './TextWithHighlights.vue'
@@ -134,14 +134,17 @@ const title = computed(() => {
 h2 {
   padding: 0 10px;
 }
+
 em {
   color: #333;
 }
+
 @media (prefers-color-scheme: dark) {
   em {
     color: #aaa;
   }
 }
+
 td {
   padding: 0 10px;
 }
