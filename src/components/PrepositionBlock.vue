@@ -25,7 +25,7 @@ const title = useTitle({
 <template>
   <div class="flex flex-col items-stretch gap-4">
     <div class="flex flex-row items-center gap-2">
-      <div>{{ title }}</div>
+      <div class="text-lg">{{ title }}</div>
       <div class="flex flex-row flex-wrap items-stretch gap-2">
         <CasePill v-for="i in cases" :key="i.case" :case="i.case" />
       </div>

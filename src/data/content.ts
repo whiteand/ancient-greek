@@ -1,4 +1,21 @@
+import * as prepositionAmphi from "@/content/prepositions/amphi.md";
+import * as prepositionAna from "@/content/prepositions/ana.md";
+import * as prepositionAnti from "@/content/prepositions/anti.md";
+import * as prepositionApo from "@/content/prepositions/apo.md";
+import * as prepositionDia from "@/content/prepositions/dia.md";
+import * as prepositionEis from "@/content/prepositions/eis.md";
+import * as prepositionEk from "@/content/prepositions/ek.md";
+import * as prepositionEn from "@/content/prepositions/en.md";
 import * as prepositionEpi from "@/content/prepositions/epi.md";
+import * as prepositionHyper from "@/content/prepositions/hyper.md";
+import * as prepositionHypo from "@/content/prepositions/hypo.md";
+import * as prepositionKata from "@/content/prepositions/kata.md";
+import * as prepositionMeta from "@/content/prepositions/meta.md";
+import * as prepositionPara from "@/content/prepositions/para.md";
+import * as prepositionPeri from "@/content/prepositions/peri.md";
+import * as prepositionPro from "@/content/prepositions/pro.md";
+import * as prepositionPros from "@/content/prepositions/pros.md";
+import * as prepositionSyn from "@/content/prepositions/syn.md";
 import * as presentActiveIndicativeWithBaseOnA from "@/content/verbs/present-active-indicative-with-base-on-a.md";
 import * as presentActiveIndicativeWithBaseOnE from "@/content/verbs/present-active-indicative-with-base-on-e.md";
 import * as presentActiveIndicativeWithBaseOnO from "@/content/verbs/present-active-indicative-with-base-on-o.md";
@@ -158,7 +175,7 @@ function parsePrepositionCases(html: string): PrepositionCase[] {
   const parent = document.createElement("div");
   parent.innerHTML = html;
 
-  return parseTable(
+  const rows = parseTable(
     {
       cols: [
         {
@@ -173,6 +190,10 @@ function parsePrepositionCases(html: string): PrepositionCase[] {
     },
     parent,
   );
+
+  rows.sort((a, b) => GREEK_CASES.indexOf(a.case) - GREEK_CASES.indexOf(b.case));
+
+  return rows;
 }
 
 function parsePrepositionTable({
@@ -192,6 +213,46 @@ function parsePrepositionTable({
   };
 }
 
+function* layoutAt<T extends { layoutItem: LayoutItem }>(
+  startX: number,
+  startY: number,
+  items: readonly T[],
+): Generator<T, void, unknown> {
+  let currentRowMaxHeight = 0;
+
+  let y = startY;
+  let x = startX;
+  const totalCols = 12;
+  for (const item of items) {
+    const { layoutItem } = item;
+    const { w, h } = layoutItem;
+
+    if (w + x > totalCols) {
+      y += currentRowMaxHeight;
+      x = 0;
+      currentRowMaxHeight = h;
+    }
+
+    yield {
+      ...item,
+      layoutItem: {
+        ...layoutItem,
+        x,
+        y,
+      },
+    };
+
+    if (w + x >= totalCols) {
+      x = 0;
+      y += Math.max(currentRowMaxHeight, h);
+      currentRowMaxHeight = 0;
+      continue;
+    }
+    x += w;
+    currentRowMaxHeight = Math.max(currentRowMaxHeight, h);
+  }
+}
+
 export const ALL = [
   parseVerbFormTable(presentActiveIndicativeWithBaseOnE),
   parseVerbFormTable(presentActiveIndicativeWithBaseOnO),
@@ -199,5 +260,28 @@ export const ALL = [
   parseVerbFormTable(presentMedPassiveIndicativeWithBaseOnE),
   parseVerbFormTable(presentMedPassiveIndicativeWithBaseOnO),
   parseVerbFormTable(presentMedPassiveIndicativeWithBaseOnA),
-  parsePrepositionTable(prepositionEpi),
+  ...layoutAt(
+    0,
+    6,
+    [
+      parsePrepositionTable(prepositionAmphi),
+      parsePrepositionTable(prepositionAna),
+      parsePrepositionTable(prepositionAnti),
+      parsePrepositionTable(prepositionApo),
+      parsePrepositionTable(prepositionDia),
+      parsePrepositionTable(prepositionEis),
+      parsePrepositionTable(prepositionEk),
+      parsePrepositionTable(prepositionEn),
+      parsePrepositionTable(prepositionEpi),
+      parsePrepositionTable(prepositionKata),
+      parsePrepositionTable(prepositionMeta),
+      parsePrepositionTable(prepositionPara),
+      parsePrepositionTable(prepositionPeri),
+      parsePrepositionTable(prepositionPro),
+      parsePrepositionTable(prepositionPros),
+      parsePrepositionTable(prepositionSyn),
+      parsePrepositionTable(prepositionHyper),
+      parsePrepositionTable(prepositionHypo),
+    ].toSorted((a, b) => a.preposition.localeCompare(b.preposition)),
+  ),
 ];

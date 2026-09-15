@@ -1,11 +1,11 @@
 import type { GreekCase } from "@/data/content";
 
 export const CASE_BG_CLASS: Record<GreekCase, string> = {
-  nominative: "bg-blue-400 dark:bg-blue-700",
-  genitive: "bg-green-400 dark:bg-green-700",
-  dative: "bg-pink-400 dark:bg-pink-700",
-  accusative: "bg-yellow-400 dark:bg-yellow-700",
-  vocative: "bg-fuchsia-400 dark:bg-fuchsia-700",
+  nominative: "bg-blue-400 dark:bg-blue-900",
+  genitive: "bg-green-400 dark:bg-green-900",
+  dative: "bg-pink-400 dark:bg-pink-900",
+  accusative: "bg-yellow-400 dark:bg-yellow-900",
+  vocative: "bg-fuchsia-400 dark:bg-fuchsia-900",
 };
 
 export const CASE_TEXT_CLASS: Record<GreekCase, string> = {
