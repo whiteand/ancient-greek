@@ -11,8 +11,8 @@ layoutItem:
 preposition: παρά
 ---
 
-| case       | meaning      |
-| :--------- | :----------- |
-| genitive   | від          |
-| dative     | з, біля      |
-| accusative | до, по, біля |
+| case       | meaning     |
+| :--------- | :---------- |
+| genitive   | від         |
+| dative     | поруч, біля |
+| accusative | до          |

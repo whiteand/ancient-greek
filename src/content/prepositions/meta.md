@@ -11,7 +11,7 @@ layoutItem:
 preposition: μετά
 ---
 
-| case       | meaning       |
-| :--------- | :------------ |
-| genitive   | з             |
-| accusative | після, позаду |
+| case       | meaning   |
+| :--------- | :-------- |
+| genitive   | з, разом  |
+| accusative | за, після |

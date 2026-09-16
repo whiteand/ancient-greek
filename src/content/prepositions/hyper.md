@@ -11,7 +11,7 @@ layoutItem:
 preposition: ὑπέρ
 ---
 
-| case       | meaning        |
-| :--------- | :------------- |
-| genitive   | над, за        |
-| accusative | над, понад, за |
+| case       | meaning                 |
+| :--------- | :---------------------- |
+| genitive   | над, зверху, за, заради |
+| accusative | через, за               |

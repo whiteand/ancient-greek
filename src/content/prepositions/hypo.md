@@ -11,8 +11,8 @@ layoutItem:
 preposition: ὑπό
 ---
 
-| case       | meaning  |
-| :--------- | :------- |
-| genitive   | під, ким |
-| dative     | під      |
-| accusative | під      |
+| case       | meaning     |
+| :--------- | :---------- |
+| genitive   | з, з-під    |
+| dative     | під (де?)   |
+| accusative | під (куди?) |

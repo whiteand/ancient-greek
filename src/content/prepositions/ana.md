@@ -11,7 +11,8 @@ layoutItem:
 preposition: ἀνά
 ---
 
-| case       | meaning      |
-| :--------- | :----------- |
-| dative     | на           |
-| accusative | вгору, через |
+| case       | meaning          |
+| :--------- | :--------------- |
+| genitive   | нагору, на       |
+| dative     | нагору, на       |
+| accusative | на, по, протягом |

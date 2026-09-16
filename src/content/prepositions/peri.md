@@ -11,8 +11,8 @@ layoutItem:
 preposition: περί
 ---
 
-| case       | meaning       |
-| :--------- | :------------ |
-| genitive   | про           |
-| dative     | про           |
-| accusative | біля, навколо |
+| case       | meaning        |
+| :--------- | :------------- |
+| genitive   | про, за        |
+| dative     | про, за        |
+| accusative | навколо, поруч |

@@ -11,6 +11,6 @@ layoutItem:
 preposition: ἀπό
 ---
 
-| case     | meaning |
-| :------- | :------ |
-| genitive | від     |
+| case     | meaning                     |
+| :------- | :-------------------------- |
+| genitive | з, від, після, з (матеріал) |

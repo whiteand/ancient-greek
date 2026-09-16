@@ -11,7 +11,7 @@ layoutItem:
 preposition: κατά
 ---
 
-| case       | meaning                |
-| :--------- | :--------------------- |
-| genitive   | вниз, проти            |
-| accusative | вниз, уздовж, згідно з |
+| case       | meaning           |
+| :--------- | :---------------- |
+| genitive   | рух донизу, проти |
+| accusative | в, на, по         |

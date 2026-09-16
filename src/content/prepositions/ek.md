@@ -11,6 +11,6 @@ layoutItem:
 preposition: ἐκ
 ---
 
-| case     | meaning |
-| :------- | :------ |
-| genitive | з       |
+| case     | meaning               |
+| :------- | :-------------------- |
+| genitive | з,  від, з (матеріал) |

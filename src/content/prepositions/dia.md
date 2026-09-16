@@ -11,7 +11,7 @@ layoutItem:
 preposition: διά
 ---
 
-| case       | meaning      |
-| :--------- | :----------- |
-| genitive   | через        |
-| accusative | через, крізь |
+| case       | meaning                |
+| :--------- | :--------------------- |
+| genitive   | протягом, через, крізь |
+| accusative | через, крізь           |

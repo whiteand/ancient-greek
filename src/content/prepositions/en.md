@@ -11,6 +11,6 @@ layoutItem:
 preposition: ἐν
 ---
 
-| case   | meaning |
-| :----- | :------ |
-| dative | в       |
+| case   | meaning             |
+| :----- | :------------------ |
+| dative | в, на, серед, поміж |

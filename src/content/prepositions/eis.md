@@ -11,6 +11,6 @@ layoutItem:
 preposition: εἰς/ἐς
 ---
 
-| case       | meaning |
-| :--------- | :------ |
-| accusative | в       |
+| case       | meaning    |
+| :--------- | :--------- |
+| accusative | в, до, для |

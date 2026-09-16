@@ -11,8 +11,8 @@ layoutItem:
 preposition: πρός
 ---
 
-| case       | meaning           |
-| :--------- | :---------------- |
-| genitive   | до, (клястися) на |
-| dative     | біля, на додаток  |
-| accusative | до                |
+| case       | meaning       |
+| :--------- | :------------ |
+| genitive   | від           |
+| dative     | до, на(куди?) |
+| accusative | до, на(куди?) |

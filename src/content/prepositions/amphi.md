@@ -11,8 +11,8 @@ layoutItem:
 preposition: ἀμφί
 ---
 
-| case       | meaning         |
-| :--------- | :-------------- |
-| genitive   | навколо, заради |
-| dative     | навколо, біля   |
-| accusative | навколо, про    |
+| case       | meaning           |
+| :--------- | :---------------- |
+| genitive   | навколо, по, біля |
+| dative     | навколо, по, біля |
+| accusative | навколо, по, біля |

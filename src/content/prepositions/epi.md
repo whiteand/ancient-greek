@@ -11,8 +11,8 @@ layoutItem:
 preposition: ἐπί
 ---
 
-| case       | meaning            |
-| :--------- | :----------------- |
-| genitive   | на, при            |
-| dative     | на, з метою, через |
-| accusative | проти              |
+| case       | meaning          |
+| :--------- | :--------------- |
+| genitive   | під час, при, на |
+| dative     | на чолі          |
+| accusative | проти, на        |

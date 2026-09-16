@@ -11,6 +11,6 @@ layoutItem:
 preposition: σύν
 ---
 
-| case   | meaning          |
-| :----- | :--------------- |
-| dative | з (за допомогою) |
+| case   | meaning           |
+| :----- | :---------------- |
+| dative | разом з, згідно з |

@@ -11,6 +11,6 @@ layoutItem:
 preposition: ἀντί
 ---
 
-| case     | meaning                   |
-| :------- | :------------------------ |
-| genitive | навпроти, замість, заради |
+| case     | meaning       |
+| :------- | :------------ |
+| genitive | за, натомість |
