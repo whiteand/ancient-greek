@@ -1,9 +1,10 @@
 <script setup lang="ts">
-import { ARTICLES, NOUNS, PREPOSITIONS, VERBS } from '@/data/content.js'
+import { ARTICLES, NOUNS, PREPOSITIONS, PRONOUNS, VERBS } from '@/data/content.js'
 import { GridItem, GridLayout } from 'grid-layout-plus'
 import { markRaw, reactive } from 'vue'
 import NounForms from './components/NounForms.vue'
 import PrepositionBlock from './components/PrepositionBlock.vue'
+import PronounForms from './components/PronounForms.vue'
 import VerbForms from './components/VerbForms.vue'
 
 const articlesLayout = reactive(
@@ -20,6 +21,16 @@ const nounsLayout = reactive(
   NOUNS.map((x) => ({
     ...x.layoutItem,
     component: markRaw(NounForms),
+    props: {
+      table: x,
+    },
+  })),
+)
+
+const pronounsLayout = reactive(
+  PRONOUNS.map((x) => ({
+    ...x.layoutItem,
+    component: markRaw(PronounForms),
     props: {
       table: x,
     },
@@ -72,6 +83,24 @@ const prepositionsLayout = reactive(
   <GridLayout v-model:layout="nounsLayout" :row-height="30">
     <GridItem
       v-for="item in nounsLayout"
+      :key="item.i"
+      :x="item.x"
+      :y="item.y"
+      :w="item.w"
+      :min-w="item.minW"
+      :max-h="item.maxH"
+      :min-h="item.minH"
+      :max-w="item.maxW"
+      :h="item.h"
+      :i="item.i"
+    >
+      <component :is="item.component" v-bind="{ ...item.props, w: item.w, h: item.h }" />
+    </GridItem>
+  </GridLayout>
+  <h2 class="px-4">Займенники</h2>
+  <GridLayout v-model:layout="pronounsLayout" :row-height="30">
+    <GridItem
+      v-for="item in pronounsLayout"
       :key="item.i"
       :x="item.x"
       :y="item.y"

@@ -6,6 +6,13 @@ import * as nounLogos from '@/content/nouns/logos.md'
 import * as nounProbaton from '@/content/nouns/probaton.md'
 import * as nounProphetes from '@/content/nouns/prophetes.md'
 import * as nounTime from '@/content/nouns/time.md'
+import * as pronounAutos from '@/content/pronouns/autos.md'
+import * as pronounEgo from '@/content/pronouns/ego.md'
+import * as pronounEkeinos from '@/content/pronouns/ekeinos.md'
+import * as pronounHos from '@/content/pronouns/hos.md'
+import * as pronounHoutos from '@/content/pronouns/houtos.md'
+import * as pronounSu from '@/content/pronouns/su.md'
+import * as pronounTis from '@/content/pronouns/tis.md'
 import * as prepositionAmphi from '@/content/prepositions/amphi.md'
 import * as prepositionAna from '@/content/prepositions/ana.md'
 import * as prepositionAnti from '@/content/prepositions/anti.md'
@@ -370,6 +377,107 @@ export const ARTICLES = layoutAt(0, 0, [
   parseArticleFormTable(articleHo),
   parseArticleFormTable(articleHe),
   parseArticleFormTable(articleTo),
+]).toArray()
+
+export type PronounForm = NounForm & { gender?: TGender }
+
+export interface PronounFormTable {
+  type: 'pronoun'
+  titles: string[]
+  pronoun: string
+  kind: string
+  label: string
+  gendered: boolean
+  forms: PronounForm[]
+  layoutItem: LayoutItem
+}
+
+const pronounFormTableAttributesSchema = v.object({
+  titles: titles,
+  layoutItem: layoutItem,
+  pronoun: v.pipe(v.string(), v.minLength(1)),
+  kind: v.pipe(v.string(), v.minLength(1)),
+  label: v.pipe(v.string(), v.minLength(1)),
+  gendered: v.optional(v.boolean(), false),
+})
+
+const genderTextSchema = v.union([
+  v.literal('masculine'),
+  v.literal('feminine'),
+  v.literal('neuter'),
+])
+
+function parsePronounForms(html: string, gendered: boolean): PronounForm[] {
+  if (!gendered) {
+    return parseCaseNumberForms(html, 8)
+  }
+
+  const parent = document.createElement('div')
+  parent.innerHTML = html
+
+  const rows = parseTable(
+    {
+      cols: [
+        {
+          name: 'case',
+          parseValue: (text) => v.parse(caseSchema, text),
+        },
+        {
+          name: 'number',
+          parseValue: (text) => v.parse(numberTextSchema, text),
+        },
+        {
+          name: 'gender',
+          parseValue: (text) => v.parse(genderTextSchema, text),
+        },
+        {
+          name: 'form',
+          parseValue: (_text, td) => parseHighlightedText(td),
+        },
+      ],
+    },
+    parent,
+  )
+
+  console.assert(rows.length === 24, 'expected 24 pronoun forms')
+
+  return rows.map((row) => ({
+    case: row.case,
+    number: row.number,
+    gender: row.gender,
+    text: row.form.text,
+    highlights: row.form.highlights,
+  }))
+}
+
+function parsePronounFormTable({
+  attributes,
+  html,
+}: {
+  attributes: Record<string, unknown>
+  html: string
+}): PronounFormTable {
+  const x = v.parse(pronounFormTableAttributesSchema, attributes)
+  return {
+    type: 'pronoun',
+    titles: x.titles,
+    pronoun: x.pronoun,
+    kind: x.kind,
+    label: x.label,
+    gendered: x.gendered,
+    layoutItem: x.layoutItem,
+    forms: parsePronounForms(html, x.gendered),
+  }
+}
+
+export const PRONOUNS = layoutAt(0, 0, [
+  parsePronounFormTable(pronounEgo),
+  parsePronounFormTable(pronounSu),
+  parsePronounFormTable(pronounAutos),
+  parsePronounFormTable(pronounHoutos),
+  parsePronounFormTable(pronounEkeinos),
+  parsePronounFormTable(pronounHos),
+  parsePronounFormTable(pronounTis),
 ]).toArray()
 
 export const NOUNS = layoutAt(0, 0, [

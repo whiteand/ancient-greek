@@ -1,6 +1,6 @@
 ---
 titles:
-  - εἰς/ἐς
+  - εἰς
 layoutItem:
   i: prepositions-eis
   w: 2
@@ -8,7 +8,7 @@ layoutItem:
   minH: 4
   minW: 2
   static: false
-preposition: εἰς/ἐς
+preposition: εἰς
 ---
 
 | case       | meaning    |

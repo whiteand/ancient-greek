@@ -1,6 +1,6 @@
 ---
 titles:
-  - ἐκ
+  - ἐκ / ἐξ
 layoutItem:
   i: prepositions-ek
   w: 2

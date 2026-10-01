@@ -1,4 +1,5 @@
 import type { GreekCase } from "@/data/content";
+import type { TGender } from "@/types";
 
 export const CASE_BG_CLASS: Record<GreekCase, string> = {
   nominative: "bg-blue-400 dark:bg-blue-900",
@@ -30,4 +31,10 @@ export const CASE_SHORT_NAME: Record<GreekCase, string> = {
   dative: "Д.",
   accusative: "З.",
   vocative: "К.",
+};
+
+export const GENDER_SHORT_NAME: Record<TGender, string> = {
+  masculine: "Ч.",
+  feminine: "Ж.",
+  neuter: "С.",
 };
