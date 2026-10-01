@@ -5,6 +5,7 @@ import { computed } from 'vue'
 const props = defineProps<{
   highlights: [number, number][]
   text: string
+  highlightClass?: string
 }>()
 
 const groups = computed(() => highlightLetters(props.text, props.highlights).toArray())
@@ -12,13 +13,13 @@ const groups = computed(() => highlightLetters(props.text, props.highlights).toA
 
 <template>
   <span v-for="(group, i) in groups" :key="i">
-    <strong v-if="group.isHighlighted">{{ group.text }}</strong>
+    <strong v-if="group.isHighlighted" :class="highlightClass ?? 'highlighted'">{{ group.text }}</strong>
     <template v-else>{{ group.text }}</template>
   </span>
 </template>
 
 <style lang="css" scoped>
-strong {
+.highlighted {
   color: var(--highlighted);
 }
 </style>

@@ -23,3 +23,11 @@ export const CASE_FULL_NAME: Record<GreekCase, string> = {
   accusative: "Знахідний",
   vocative: "Кличний",
 };
+
+export const CASE_SHORT_NAME: Record<GreekCase, string> = {
+  nominative: "Н.",
+  genitive: "Р.",
+  dative: "Д.",
+  accusative: "З.",
+  vocative: "К.",
+};

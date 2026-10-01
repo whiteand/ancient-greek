@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { CASE_FULL_NAME, CASE_TEXT_CLASS } from '@/components/cases.ts'
+import { CASE_SHORT_NAME, CASE_TEXT_CLASS } from '@/components/cases.ts'
 import { useTitle } from '@/composables/useTitle.js'
 import { GREEK_CASES, type GreekCase, type NounForm, type NounFormTable } from '@/data/content.js'
 import type { TDeclension, TGender, TNumber } from '@/types'
@@ -60,18 +60,20 @@ const title = useTitle({
       <tbody>
         <tr v-for="greekCase in GREEK_CASES" :key="greekCase">
           <td>
-            <span :class="CASE_TEXT_CLASS[greekCase]">{{ CASE_FULL_NAME[greekCase] }}</span>
+            <span :class="CASE_TEXT_CLASS[greekCase]">{{ CASE_SHORT_NAME[greekCase] }}</span>
           </td>
           <td>
             <TextWithHighlights
               :highlights="getForm(greekCase, 'singular').highlights"
               :text="getForm(greekCase, 'singular').text"
+              :highlight-class="CASE_TEXT_CLASS[greekCase]"
             />
           </td>
           <td>
             <TextWithHighlights
               :highlights="getForm(greekCase, 'plural').highlights"
               :text="getForm(greekCase, 'plural').text"
+              :highlight-class="CASE_TEXT_CLASS[greekCase]"
             />
           </td>
         </tr>
