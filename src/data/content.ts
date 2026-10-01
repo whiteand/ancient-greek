@@ -1,6 +1,8 @@
 import * as nounHodos from '@/content/nouns/hodos.md'
 import * as nounLogos from '@/content/nouns/logos.md'
 import * as nounProbaton from '@/content/nouns/probaton.md'
+import * as nounProphetes from '@/content/nouns/prophetes.md'
+import * as nounTime from '@/content/nouns/time.md'
 import * as prepositionAmphi from '@/content/prepositions/amphi.md'
 import * as prepositionAna from '@/content/prepositions/ana.md'
 import * as prepositionAnti from '@/content/prepositions/anti.md'
@@ -328,6 +330,8 @@ function parseNounFormTable({
 }
 
 export const NOUNS = layoutAt(0, 0, [
+  parseNounFormTable(nounTime),
+  parseNounFormTable(nounProphetes),
   parseNounFormTable(nounLogos),
   parseNounFormTable(nounHodos),
   parseNounFormTable(nounProbaton),
