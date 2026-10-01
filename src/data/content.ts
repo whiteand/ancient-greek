@@ -1,3 +1,6 @@
+import * as articleHe from '@/content/articles/he.md'
+import * as articleHo from '@/content/articles/ho.md'
+import * as articleTo from '@/content/articles/to.md'
 import * as nounHodos from '@/content/nouns/hodos.md'
 import * as nounLogos from '@/content/nouns/logos.md'
 import * as nounProbaton from '@/content/nouns/probaton.md'
@@ -270,7 +273,7 @@ const nounFormTableAttributesSchema = v.object({
   gender: v.union([v.literal('masculine'), v.literal('feminine'), v.literal('neuter')]),
 })
 
-function parseNounForms(html: string): NounForm[] {
+function parseCaseNumberForms(html: string, expectedLength: number): NounForm[] {
   const parent = document.createElement('div')
   parent.innerHTML = html
 
@@ -294,7 +297,7 @@ function parseNounForms(html: string): NounForm[] {
     parent,
   )
 
-  console.assert(rows.length === 10, 'expected 10 noun forms')
+  console.assert(rows.length === expectedLength, `expected ${expectedLength} forms`)
 
   rows.sort(
     (a, b) =>
@@ -325,9 +328,49 @@ function parseNounFormTable({
     declension: x.declension,
     gender: x.gender,
     layoutItem: x.layoutItem,
-    forms: parseNounForms(html),
+    forms: parseCaseNumberForms(html, 10),
   }
 }
+
+export interface ArticleFormTable {
+  type: 'article'
+  titles: string[]
+  article: string
+  gender: TGender
+  forms: NounForm[]
+  layoutItem: LayoutItem
+}
+
+const articleFormTableAttributesSchema = v.object({
+  titles: titles,
+  layoutItem: layoutItem,
+  article: v.pipe(v.string(), v.minLength(1)),
+  gender: v.union([v.literal('masculine'), v.literal('feminine'), v.literal('neuter')]),
+})
+
+function parseArticleFormTable({
+  attributes,
+  html,
+}: {
+  attributes: Record<string, unknown>
+  html: string
+}): ArticleFormTable {
+  const x = v.parse(articleFormTableAttributesSchema, attributes)
+  return {
+    type: 'article',
+    titles: x.titles,
+    article: x.article,
+    gender: x.gender,
+    layoutItem: x.layoutItem,
+    forms: parseCaseNumberForms(html, 8),
+  }
+}
+
+export const ARTICLES = layoutAt(0, 0, [
+  parseArticleFormTable(articleHo),
+  parseArticleFormTable(articleHe),
+  parseArticleFormTable(articleTo),
+]).toArray()
 
 export const NOUNS = layoutAt(0, 0, [
   parseNounFormTable(nounTime),

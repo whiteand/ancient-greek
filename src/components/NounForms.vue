@@ -1,15 +1,21 @@
 <script setup lang="ts">
 import { CASE_SHORT_NAME, CASE_TEXT_CLASS } from '@/components/cases.ts'
 import { useTitle } from '@/composables/useTitle.js'
-import { GREEK_CASES, type GreekCase, type NounForm, type NounFormTable } from '@/data/content.js'
+import {
+  GREEK_CASES,
+  type ArticleFormTable,
+  type GreekCase,
+  type NounForm,
+  type NounFormTable,
+} from '@/data/content.js'
 import type { TDeclension, TGender, TNumber } from '@/types'
-import { toRef } from 'vue'
+import { computed, toRef } from 'vue'
 import TextWithHighlights from './TextWithHighlights.vue'
 
 const props = defineProps<{
   w: number
   h: number
-  table: NounFormTable
+  table: NounFormTable | ArticleFormTable
 }>()
 
 const DECLENSION_NAME: Record<TDeclension, string> = {
@@ -33,6 +39,18 @@ function getForm(greekCase: GreekCase, number: TNumber): NounForm {
   return props.table.forms.find((p) => p.case === greekCase && p.number === number)!
 }
 
+const cases = computed(() =>
+  GREEK_CASES.filter((greekCase) => props.table.forms.some((form) => form.case === greekCase)),
+)
+
+const subtitle = computed(() => {
+  const gender = GENDER_NAME[props.table.gender]
+  if (props.table.type === 'noun') {
+    return `${DECLENSION_NAME[props.table.declension]}, ${gender}`
+  }
+  return `Артикль, ${gender}`
+})
+
 const title = useTitle({
   w: toRef(props, 'w'),
   titles: toRef(props.table, 'titles'),
@@ -42,9 +60,7 @@ const title = useTitle({
 <template>
   <div>
     <h3 class="px-2">{{ title }}</h3>
-    <div class="px-2 text-xs">
-      {{ DECLENSION_NAME[table.declension] }}, {{ GENDER_NAME[table.gender] }}
-    </div>
+    <div class="px-2 text-xs">{{ subtitle }}</div>
     <table class="w-full">
       <thead>
         <tr>
@@ -58,7 +74,7 @@ const title = useTitle({
         </tr>
       </thead>
       <tbody>
-        <tr v-for="greekCase in GREEK_CASES" :key="greekCase">
+        <tr v-for="greekCase in cases" :key="greekCase">
           <td>
             <span :class="CASE_TEXT_CLASS[greekCase]">{{ CASE_SHORT_NAME[greekCase] }}</span>
           </td>
