@@ -1,6 +1,6 @@
 ---
 titles:
-- ἀπό
+  - ἀπό
 layoutItem:
   i: prepositions-apo
   w: 2

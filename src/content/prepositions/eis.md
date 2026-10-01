@@ -1,6 +1,6 @@
 ---
 titles:
-- εἰς/ἐς
+  - εἰς/ἐς
 layoutItem:
   i: prepositions-eis
   w: 2

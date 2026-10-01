@@ -1,6 +1,6 @@
 ---
 titles:
-- μετά
+  - μετά
 layoutItem:
   i: prepositions-meta
   w: 2

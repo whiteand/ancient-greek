@@ -1,6 +1,6 @@
 ---
 titles:
-- πρός
+  - πρός
 layoutItem:
   i: prepositions-pros
   w: 2

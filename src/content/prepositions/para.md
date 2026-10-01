@@ -1,6 +1,6 @@
 ---
 titles:
-- παρά
+  - παρά
 layoutItem:
   i: prepositions-para
   w: 2

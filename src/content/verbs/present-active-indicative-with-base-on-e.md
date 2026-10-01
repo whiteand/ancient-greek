@@ -1,16 +1,16 @@
 ---
 titles:
-- Тепер. індикатив акт. на -ε
+  - Тепер. індикатив акт. на -ε
 layoutRules:
-- layout: 3x2
-  width: 452
-  height: 45
-- layout: 2x3
-  width: 333
-  height: 66
-- layout: 1x6
-  width: 202
-  height: 190
+  - layout: 3x2
+    width: 452
+    height: 45
+  - layout: 2x3
+    width: 333
+    height: 66
+  - layout: 1x6
+    width: 202
+    height: 190
 layoutItem:
   i: present-active-indicative-with-base-on-e
   w: 2
@@ -21,8 +21,6 @@ layoutItem:
   maxH: 6
   static: false
 ---
-
-
 
 | person | number   | form                 |
 | :----- | :------- | :------------------- |

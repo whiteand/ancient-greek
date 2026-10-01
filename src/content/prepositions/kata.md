@@ -1,6 +1,6 @@
 ---
 titles:
-- κατά
+  - κατά
 layoutItem:
   i: prepositions-kata
   w: 2

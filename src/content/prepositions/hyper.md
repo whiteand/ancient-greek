@@ -1,6 +1,6 @@
 ---
 titles:
-- ὑπέρ
+  - ὑπέρ
 layoutItem:
   i: prepositions-hyper
   w: 2

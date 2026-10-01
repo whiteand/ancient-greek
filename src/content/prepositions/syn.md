@@ -1,6 +1,6 @@
 ---
 titles:
-- σύν
+  - σύν
 layoutItem:
   i: prepositions-syn
   w: 2

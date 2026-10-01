@@ -1,6 +1,6 @@
 ---
 titles:
-- ἐν
+  - ἐν
 layoutItem:
   i: prepositions-en
   w: 2

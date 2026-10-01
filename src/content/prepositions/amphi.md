@@ -1,6 +1,6 @@
 ---
 titles:
-- ἀμφί
+  - ἀμφί
 layoutItem:
   i: prepositions-amphi
   w: 2

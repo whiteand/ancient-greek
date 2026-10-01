@@ -1,6 +1,6 @@
 ---
 titles:
-- ἀνά
+  - ἀνά
 layoutItem:
   i: prepositions-ana
   w: 2

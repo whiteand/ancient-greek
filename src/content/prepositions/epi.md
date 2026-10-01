@@ -1,6 +1,6 @@
 ---
 titles:
-- ἐπί
+  - ἐπί
 layoutItem:
   i: prepositions-epi
   w: 2

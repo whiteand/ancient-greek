@@ -1,16 +1,16 @@
 ---
 titles:
-- Тепер. медіо-пасив на -ε
+  - Тепер. медіо-пасив на -ε
 layoutRules:
-- layout: 3x2
-  width: 452
-  height: 45
-- layout: 2x3
-  width: 333
-  height: 66
-- layout: 1x6
-  width: 202
-  height: 190
+  - layout: 3x2
+    width: 452
+    height: 45
+  - layout: 2x3
+    width: 333
+    height: 66
+  - layout: 1x6
+    width: 202
+    height: 190
 layoutItem:
   i: present-med-passive-indicative-with-base-on-e
   x: 6

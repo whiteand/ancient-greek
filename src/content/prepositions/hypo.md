@@ -1,6 +1,6 @@
 ---
 titles:
-- ὑπό
+  - ὑπό
 layoutItem:
   i: prepositions-hypo
   w: 2

@@ -1,6 +1,6 @@
 ---
 titles:
-- διά
+  - διά
 layoutItem:
   i: prepositions-dia
   w: 2

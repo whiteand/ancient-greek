@@ -1,3 +1,4 @@
+import * as nounProbaton from "@/content/nouns/probaton.md";
 import * as prepositionAmphi from "@/content/prepositions/amphi.md";
 import * as prepositionAna from "@/content/prepositions/ana.md";
 import * as prepositionAnti from "@/content/prepositions/anti.md";
@@ -25,9 +26,10 @@ import * as presentMedPassiveIndicativeWithBaseOnE from "@/content/verbs/present
 import * as presentMedPassiveIndicativeWithBaseOnO from "@/content/verbs/present-med-passive-indicative-with-base-on-o.md";
 import type { LayoutItem } from "grid-layout-plus";
 import * as v from "valibot";
-import type { TNumber, TPerson } from "../types/index.js";
-import { takeText } from "@/data/parse/takeText.js";
+import type { TDeclension, TGender, TNumber, TPerson } from "../types/index.js";
+import { parseHighlightedText } from "@/data/parse/parseHighlightedText.js";
 import { parseTable } from "@/data/parse/parseTable.js";
+import { takeText } from "@/data/parse/takeText.js";
 
 export type VerbForm = {
   person: TPerson;
@@ -102,22 +104,7 @@ function parseVerbForms(html: string): VerbForm[] {
 
     if (!formNode) throw new Error();
 
-    let text = "";
-    const highlights = [] as [number, number][];
-    for (let p = formNode.firstChild; p != null; p = p.nextSibling) {
-      if (p.nodeType === document.TEXT_NODE) {
-        text += p.textContent;
-        continue;
-      }
-      if (p.nodeType === document.ELEMENT_NODE && p.nodeName === "STRONG") {
-        const start = text.length;
-        text += p.textContent;
-        const end = text.length;
-        highlights.push([start, end]);
-        continue;
-      }
-      throw new Error("not implemented");
-    }
+    const { text, highlights } = parseHighlightedText(formNode);
 
     res.push({
       highlights,
@@ -153,7 +140,7 @@ const prepositionAttributes = v.object({
   preposition: v.pipe(v.string(), v.minLength(1)),
 });
 
-const GREEK_CASES = ["nominative", "genitive", "dative", "accusative", "vocative"] as const;
+export const GREEK_CASES = ["nominative", "genitive", "dative", "accusative", "vocative"] as const;
 export type GreekCase = (typeof GREEK_CASES)[number];
 
 export type PrepositionCase = {
@@ -253,6 +240,92 @@ function* layoutAt<T extends { layoutItem: LayoutItem }>(
     currentRowMaxHeight = Math.max(currentRowMaxHeight, h);
   }
 }
+
+export type NounForm = {
+  case: GreekCase;
+  number: TNumber;
+  text: string;
+  highlights: [number, number][];
+};
+
+export interface NounFormTable {
+  type: "noun";
+  titles: string[];
+  noun: string;
+  declension: TDeclension;
+  gender: TGender;
+  forms: NounForm[];
+  layoutItem: LayoutItem;
+}
+
+const nounFormTableAttributesSchema = v.object({
+  titles: titles,
+  layoutItem: layoutItem,
+  noun: v.pipe(v.string(), v.minLength(1)),
+  declension: v.union([v.literal(1), v.literal(2), v.literal(3)]),
+  gender: v.union([v.literal("masculine"), v.literal("feminine"), v.literal("neuter")]),
+});
+
+function parseNounForms(html: string): NounForm[] {
+  const parent = document.createElement("div");
+  parent.innerHTML = html;
+
+  const rows = parseTable(
+    {
+      cols: [
+        {
+          name: "case",
+          parseValue: (text) => v.parse(caseSchema, text),
+        },
+        {
+          name: "number",
+          parseValue: (text) => v.parse(numberTextSchema, text),
+        },
+        {
+          name: "form",
+          parseValue: (_text, td) => parseHighlightedText(td),
+        },
+      ],
+    },
+    parent,
+  );
+
+  console.assert(rows.length === 10, "expected 10 noun forms");
+
+  rows.sort(
+    (a, b) =>
+      GREEK_CASES.indexOf(a.case) - GREEK_CASES.indexOf(b.case) ||
+      (a.number === b.number ? 0 : a.number === "singular" ? -1 : 1),
+  );
+
+  return rows.map((row) => ({
+    case: row.case,
+    number: row.number,
+    text: row.form.text,
+    highlights: row.form.highlights,
+  }));
+}
+
+function parseNounFormTable({
+  attributes,
+  html,
+}: {
+  attributes: Record<string, unknown>;
+  html: string;
+}): NounFormTable {
+  const x = v.parse(nounFormTableAttributesSchema, attributes);
+  return {
+    type: "noun",
+    titles: x.titles,
+    noun: x.noun,
+    declension: x.declension,
+    gender: x.gender,
+    layoutItem: x.layoutItem,
+    forms: parseNounForms(html),
+  };
+}
+
+export const NOUNS = layoutAt(0, 0, [parseNounFormTable(nounProbaton)]).toArray();
 
 export const VERBS = layoutAt(0, 0, [
   parseVerbFormTable(presentActiveIndicativeWithBaseOnE),

@@ -1,6 +1,6 @@
 ---
 titles:
-- περί
+  - περί
 layoutItem:
   i: prepositions-peri
   w: 2

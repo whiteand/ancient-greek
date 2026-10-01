@@ -1,16 +1,16 @@
 ---
 titles:
-- Тепер. індикатив акт. на -ο
+  - Тепер. індикатив акт. на -ο
 layoutRules:
-- layout: 3x2
-  width: 452
-  height: 45
-- layout: 2x3
-  width: 333
-  height: 66
-- layout: 1x6
-  width: 202
-  height: 190
+  - layout: 3x2
+    width: 452
+    height: 45
+  - layout: 2x3
+    width: 333
+    height: 66
+  - layout: 1x6
+    width: 202
+    height: 190
 layoutItem:
   i: present-active-indicative-with-base-on-o
   x: 2
@@ -22,8 +22,6 @@ layoutItem:
   maxH: 6
   static: false
 ---
-
-
 
 | person | number   | form                 |
 | :----- | :------- | :------------------- |

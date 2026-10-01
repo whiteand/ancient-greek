@@ -1,6 +1,6 @@
 ---
 titles:
-- ἐκ
+  - ἐκ
 layoutItem:
   i: prepositions-ek
   w: 2
@@ -11,6 +11,6 @@ layoutItem:
 preposition: ἐκ
 ---
 
-| case     | meaning               |
-| :------- | :-------------------- |
-| genitive | з,  від, з (матеріал) |
+| case     | meaning              |
+| :------- | :------------------- |
+| genitive | з, від, з (матеріал) |

@@ -1,6 +1,6 @@
 ---
 titles:
-- ἀντί
+  - ἀντί
 layoutItem:
   i: prepositions-anti
   w: 2
