@@ -1,7 +1,24 @@
-<script setup lang="ts"></script>
+<script setup lang="ts">
+import AlphabetGrid from '@/components/AlphabetGrid.vue'
+import ColoredSection from '@/components/ColoredSection.vue'
+import SectionHeader from '@/components/SectionHeader.vue'
+
+const paths = Array.from(
+  { length: 43 },
+  (_, i) => `/temp/${(i + 1).toString().padStart(2, '0')}.png`,
+).slice(1)
+</script>
 
 <template>
   <main class="container mx-auto px-2">
     <h1>Коротка граматика давньогрецької</h1>
+    <SectionHeader>Письмо і вимова</SectionHeader>
+    <ColoredSection class="bg-sky-100 dark:bg-sky-900">
+      <AlphabetGrid />
+    </ColoredSection>
+
+    <div class="flex-col gap-2">
+      <img v-for="path in paths" :src="path" :key="path" />
+    </div>
   </main>
 </template>
