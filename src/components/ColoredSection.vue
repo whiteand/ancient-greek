@@ -1,7 +1,7 @@
 <template>
-  <h2 :class="['-mx-2 px-2', $props.class]">
+  <section :class="['-mx-2 px-2', $props.class]">
     <slot />
-  </h2>
+  </section>
 </template>
 
 <script setup lang="ts">

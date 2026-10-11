@@ -141,7 +141,7 @@ const cols = [letters.slice(0, 8), letters.slice(8, 16), letters.slice(16, 24)]
         <template v-for="letter in col" :key="letter.name">
           <div>{{ letter.number + '.' }}</div>
           <div class="flex flex-nowrap items-baseline justify-start gap-2 text-pink-500">
-            <div v-for="variant in letter.variants" :key="variant">
+            <div v-for="variant in letter.variants" class="font-greek" :key="variant">
               {{ variant }}
             </div>
           </div>
