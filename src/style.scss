@@ -6,6 +6,8 @@ body {
   margin: 0;
   font-family: "Fira Code", sans-serif;
 }
+
+h1,
 h2,
 h3 {
   font-family:
@@ -21,6 +23,13 @@ h3 {
     "Helvetica Neue";
   color: black;
 }
+h1 {
+  font-size: 24px;
+  font-weight: bold;
+  line-height: 2;
+  color: black;
+}
+
 h2 {
   font-size: 18px;
   font-weight: bold;
@@ -40,6 +49,7 @@ h3 {
     background: #1e1e1e;
     color: #eaeaea;
   }
+  h1,
   h2,
   h3 {
     color: white;
