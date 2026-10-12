@@ -1,5 +1,6 @@
 :root {
   --highlighted: #22c55e;
+  color: black;
 }
 body {
   background: #eaeaea;
@@ -11,40 +12,29 @@ body {
   font-family: "Gentium Plus", "Noto Serif", Georgia, serif;
 }
 
-h1,
-h2,
-h3 {
-  color: black;
-}
 h1 {
   font-size: 24px;
   font-weight: bold;
   line-height: 2;
-  color: black;
 }
 
 h2 {
   font-size: 18px;
   font-weight: bold;
   line-height: 2;
-  color: black;
 }
 
 h3 {
   font-size: 18px;
   font-weight: bold;
   line-height: 1;
-  color: black;
 }
 
 @media (prefers-color-scheme: dark) {
-  body {
-    background: #1e1e1e;
+  :root {
     color: #eaeaea;
   }
-  h1,
-  h2,
-  h3 {
-    color: white;
+  body {
+    background: #1e1e1e;
   }
 }
