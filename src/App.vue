@@ -5,6 +5,7 @@ import SectionHeader from '@/components/SectionHeader.vue'
 import PhoneticsExplanation from '@/components/PhoneticsExplanation.vue'
 import AccentExplanation from '@/components/AccentExplanation.vue'
 import ArticleExplanation from '@/components/ArticleExplanation.vue'
+import NounsExplanation from '@/components/NounsExplanation.vue'
 
 const paths = Array.from(
   { length: 43 },
@@ -25,6 +26,7 @@ const paths = Array.from(
         <li><a class="text-blue-900 dark:text-blue-50" href="#accent">Наголос</a></li>
         <li><a class="text-blue-900 dark:text-blue-50" href="#morphology">Морфологія</a></li>
         <li><a class="text-blue-900 dark:text-blue-50" href="#article">Артикль</a></li>
+        <li><a class="text-blue-900 dark:text-blue-50" href="#nouns">Іменники</a></li>
       </ul>
     </section>
     <SectionHeader id="writing-and-pronunciation">Письмо і вимова</SectionHeader>
@@ -40,6 +42,10 @@ const paths = Array.from(
     <SectionHeader id="article">Артикль</SectionHeader>
     <ColoredSection class="bg-lime-50 dark:bg-lime-900">
       <ArticleExplanation />
+    </ColoredSection>
+    <SectionHeader id="article">Іменники</SectionHeader>
+    <ColoredSection class="bg-yellow-100 dark:bg-yellow-900">
+      <NounsExplanation />
     </ColoredSection>
     <div class="flex-col gap-2">
       <img v-for="path in paths" :src="path" :key="path" />
