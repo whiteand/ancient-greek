@@ -1,3 +1,30 @@
+export function parseHighlightedTextFromMarkdown(text: string): {
+  text: string;
+  highlights: [number, number][];
+} {
+  let output = "";
+  const highlights = [] as [number, number][];
+  const allMatches = text.matchAll(/\*\*(.*?)\*\*/g).toArray();
+  let offset = 0;
+
+  if (allMatches.length === 0) return { text, highlights: [] };
+
+  for (const match of allMatches) {
+    const rawText = match[1]!;
+    const ind = match.index;
+    if (ind > offset) {
+      output += text.slice(offset, ind);
+      offset = ind;
+    }
+    highlights.push([output.length, output.length + rawText.length]);
+    output += rawText;
+    offset += match[0].length;
+  }
+  return {
+    text: output,
+    highlights: highlights,
+  };
+}
 export function parseHighlightedText(node: Node): {
   text: string;
   highlights: [number, number][];

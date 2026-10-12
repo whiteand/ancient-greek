@@ -19,9 +19,9 @@ const paths = Array.from(
     <section>
       <ul>
         <li>
-          <a class="text-blue-900 dark:text-blue-50" href="#writing-and-pronunciation"
-            >Письмо і вимова</a
-          >
+          <a class="text-blue-900 dark:text-blue-50" href="#writing-and-pronunciation">
+            Письмо і вимова
+          </a>
         </li>
         <li><a class="text-blue-900 dark:text-blue-50" href="#accent">Наголос</a></li>
         <li><a class="text-blue-900 dark:text-blue-50" href="#morphology">Морфологія</a></li>

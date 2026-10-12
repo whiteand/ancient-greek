@@ -13,7 +13,9 @@ const groups = computed(() => highlightLetters(props.text, props.highlights).toA
 
 <template>
   <span v-for="(group, i) in groups" :key="i">
-    <strong v-if="group.isHighlighted" :class="highlightClass ?? 'highlighted'">{{ group.text }}</strong>
+    <strong v-if="group.isHighlighted" :class="highlightClass ?? 'highlighted'">{{
+      group.text
+    }}</strong>
     <template v-else>{{ group.text }}</template>
   </span>
 </template>
