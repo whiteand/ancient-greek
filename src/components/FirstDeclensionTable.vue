@@ -1,18 +1,37 @@
 <template>
-  <div :style="gridStyle">
-    <div class="[grid-area:a]"><Gr class="text-cyan-600 dark:text-cyan-300" text="ᾱ-" />основи</div>
-    <div class="[grid-area:b]"><Gr class="text-cyan-600 dark:text-cyan-300" text="ᾰ-" />основи</div>
-    <div class="[grid-area:c]"><Gr text="ᾱ" /> чиста (якщо перед нею <Gr text="ε, ι, ρ" />)</div>
-    <div class="[grid-area:d]"><Gr text="ᾱ" /> &gt; <Gr text="η" /></div>
-    <div class="[grid-area:e]">чол.</div>
-    <div class="[grid-area:f]"><Gr text="ᾱ" /> чиста</div>
-    <div class="[grid-area:g]"><Gr text="ᾱ" /> &gt; <Gr text="η" /></div>
-    <div v-for="(x, i) in GREEK_CASES.slice(0, -1)" :key="x" :style="{ gridArea: `f${i}` }">
-      {{ CASE_FULL_NAME[x] }}
+  <div
+    :style="gridStyle"
+    class="first-declension-grid grid grid-cols-[fit-content(100%)_repeat(10,fit-content(9%))] gap-x-2"
+  >
+    <div class="text-center [grid-area:a]">
+      <Gr class="text-cyan-600 dark:text-cyan-300" text="ᾱ-" />основи
     </div>
-    <div v-for="(x, i) in GREEK_CASES.slice(0, -1)" :key="x" :style="{ gridArea: `p${i}` }">
-      {{ CASE_SHORT_NAME[x] }}
+    <div class="text-center [grid-area:b]">
+      <Gr class="text-cyan-600 dark:text-cyan-300" text="ᾰ-" />основи
     </div>
+    <div class="text-center [grid-area:c] min-[27rem]:text-left">
+      <Gr text="ᾱ" /> чиста (після&nbsp;<Gr text="ε,&nbsp;ι,&nbsp;ρ" />)
+    </div>
+    <div class="text-center [grid-area:d] min-[27rem]:text-left">
+      <Gr text="ᾱ" /> &gt; <Gr text="η" />
+    </div>
+    <div class="text-center [grid-area:e] min-[27rem]:text-left">чол.</div>
+    <div class="text-center [grid-area:f] min-[27rem]:text-left"><Gr text="ᾱ" /> чиста</div>
+    <div class="text-center [grid-area:g] min-[27rem]:text-left">
+      <Gr text="ᾱ" /> &gt; <Gr text="η" />
+    </div>
+    <template v-for="[pref, additionalClass] in CASE_COLS_PREFS" :key="pref">
+      <div :style="{ gridArea: `${pref}0` }" :class="additionalClass">
+        {{ CASE_SHORTEN_NAME.nominative }}&nbsp;{{
+          pref.startsWith('p') ? NUMBER_SHORT_NAME.plural : NUMBER_SHORT_NAME.singular
+        }}
+      </div>
+      <template v-for="(x, i) in GREEK_CASES.slice(1, -1)" :key="x">
+        <div :style="{ gridArea: `${pref}${i + 1}` }" :class="additionalClass">
+          {{ CASE_SHORTEN_NAME[x] }}
+        </div>
+      </template>
+    </template>
     <Gr class="[grid-area:i0]" text="ἡ" />
     <Gr class="[grid-area:i1]" text="τῆς" />
     <Gr class="[grid-area:i2]" text="τῇ" />
@@ -78,27 +97,109 @@
 </template>
 
 <script setup lang="ts">
-import { type StyleValue } from 'vue'
 import Gr from './GreekSpan.vue'
-import { CASE_FULL_NAME, CASE_SHORT_NAME } from '@/components/cases.ts'
+import { CASE_SHORTEN_NAME, NUMBER_SHORT_NAME } from '@/components/cases.ts'
 import { GREEK_CASES } from '@/data/greekCase.ts'
-
-const gridStyle: StyleValue = {
-  display: 'grid',
-  gridTemplate: `
-"a   a   a   a  a   a   a   b  b   b  b"
-"c   c   c   .  d   .   e   .  f   .  g"
-"f0  i0  a0  j  b0  k0  c0  l  d0  m  e0"
-"f1  i1  a1  .  b1  .   c1  .  d1  .  e1"
-"f2  i2  a2  .  b2  .   c2  .  d2  .  e2"
-"f3  i3  a3  .  b3  .   c3  .  d3  .  e3"
-"p0  i4  a4  .  b4  k1  c4  .  d4  .  e4"
-"p1  i5  a5  .  b5  .   c5  .  d5  .  e5"
-"p2  i6  a6  .  b6  .   c6  .  d6  .  e6"
-"p3  i7  a7  .  b7  .   c7  .  d7  .  e7"
-
-`.trim(),
-  gridTemplateColumns: 'fit-content(100%) repeat(10, fit-content(9%))',
-  columnGap: '0.5em',
-}
+const CASE_COLS_PREFS: Array<[string, string]> = [
+  ['f', ''],
+  ['p', ''],
+  ['f2', 'md:hidden'],
+  ['p2', 'md:hidden'],
+  ['f3', 'min-[27rem]:hidden'],
+  ['p3', 'min-[27rem]:hidden'],
+  ['f4', 'min-[27rem]:hidden'],
+  ['p4', 'min-[27rem]:hidden'],
+  ['f5', 'min-[27rem]:hidden'],
+  ['p5', 'min-[27rem]:hidden'],
+]
 </script>
+
+<style scoped lang="scss">
+.first-declension-grid {
+  grid-template:
+    'a   a   a'
+    'c   c   c'
+    'f0  i0  a0'
+    'f1  i1  a1'
+    'f2  i2  a2'
+    'f3  i3  a3'
+    'p0  i4  a4'
+    'p1  i5  a5'
+    'p2  i6  a6'
+    'p3  i7  a7'
+    'd   d   d'
+    'f30 j   b0'
+    'f31 .   b1'
+    'f32 .   b2'
+    'f33 .   b3'
+    'p30 .   b4'
+    'p31 .   b5'
+    'p32 .   b6'
+    'p33 .   b7'
+    'e   e   e'
+    'f40 k0  c0'
+    'f41 .   c1'
+    'f42 .   c2'
+    'f43 .   c3'
+    'p40 k1  c4'
+    'p41 .   c5'
+    'p42 .   c6'
+    'p43 .   c7'
+    'b   b   b'
+    'f   f  f '
+    'f20 l  d0'
+    'f21 .  d1'
+    'f22 .  d2'
+    'f23 .  d3'
+    'p20 .  d4'
+    'p21 .  d5'
+    'p22 .  d6'
+    'p23 .  d7'
+    'g g  g'
+    'f50 m  e0'
+    'f51 .  e1'
+    'f52 .  e2'
+    'f53 .  e3'
+    'p50 .  e4'
+    'p51 .  e5'
+    'p52 .  e6'
+    'p53 .  e7';
+  @media (width >= 27rem) {
+    grid-template:
+      'a   a   a   a  a   a   a '
+      'c   c   c   .  d   .   e '
+      'f0  i0  a0  j  b0  k0  c0'
+      'f1  i1  a1  .  b1  .   c1'
+      'f2  i2  a2  .  b2  .   c2'
+      'f3  i3  a3  .  b3  .   c3'
+      'p0  i4  a4  .  b4  k1  c4'
+      'p1  i5  a5  .  b5  .   c5'
+      'p2  i6  a6  .  b6  .   c6'
+      'p3  i7  a7  .  b7  .   c7'
+      '.   b  b   b  b . .'
+      '.   .  f   .  g . .'
+      'f20 l  d0  m  e0 . .'
+      'f21 .  d1  .  e1 . .'
+      'f22 .  d2  .  e2 . .'
+      'f23 .  d3  .  e3 . .'
+      'p20 .  d4  .  e4 . .'
+      'p21 .  d5  .  e5 . .'
+      'p22 .  d6  .  e6 . .'
+      'p23 .  d7  .  e7 . .';
+  }
+
+  @media (width >= 48rem) {
+    grid-template:
+      'a   a   a   a  a   a   a   b  b   b  b'
+      'c   c   c   .  d   .   e   .  f   .  g'
+      'f0  i0  a0  j  b0  k0  c0  l  d0  m  e0'
+      'f1  i1  a1  .  b1  .   c1  .  d1  .  e1'
+      'f2  i2  a2  .  b2  .   c2  .  d2  .  e2'
+      'f3  i3  a3  .  b3  .   c3  .  d3  .  e3'
+      'p0  i4  a4  .  b4  k1  c4  .  d4  .  e4'
+      'p1  i5  a5  .  b5  .   c5  .  d5  .  e5'
+      'p2  i6  a6  .  b6  .   c6  .  d6  .  e6'
+      'p3  i7  a7  .  b7  .   c7  .  d7  .  e7';
+  }
+}
+</style>

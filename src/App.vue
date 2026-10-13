@@ -10,7 +10,7 @@ import NounsExplanation from '@/components/NounsExplanation.vue'
 const paths = Array.from(
   { length: 43 },
   (_, i) => `/temp/${(i + 1).toString().padStart(2, '0')}.png`,
-).slice(4)
+).slice(5)
 </script>
 
 <template>
@@ -44,7 +44,7 @@ const paths = Array.from(
       <ArticleExplanation />
     </ColoredSection>
     <SectionHeader id="article">Іменники</SectionHeader>
-    <ColoredSection class="bg-yellow-100 dark:bg-yellow-900">
+    <ColoredSection class="bg-yellow-100 dark:bg-amber-950">
       <NounsExplanation />
     </ColoredSection>
     <div class="flex-col gap-2">
