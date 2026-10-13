@@ -8,9 +8,14 @@ import ArticleExplanation from '@/components/ArticleExplanation.vue'
 import NounsExplanation from '@/components/NounsExplanation.vue'
 import OldApp from './OldApp.vue'
 
-const paths = Array.from(
-  { length: 43 },
-  (_, i) => `/temp/${(i + 1).toString().padStart(2, '0')}.png`,
+const resolvePublic = (path: string) => {
+  const base = import.meta.env.BASE_URL.replace(/\/$/, '')
+  const target = path.replace(/^\//, '')
+  return `${base}/${target}`
+}
+
+const paths = Array.from({ length: 43 }, (_, i) =>
+  resolvePublic(`/foreign/${(i + 1).toString().padStart(2, '0')}.png`),
 ).slice(5)
 </script>
 
