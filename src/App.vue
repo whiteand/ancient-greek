@@ -6,6 +6,7 @@ import PhoneticsExplanation from '@/components/PhoneticsExplanation.vue'
 import AccentExplanation from '@/components/AccentExplanation.vue'
 import ArticleExplanation from '@/components/ArticleExplanation.vue'
 import NounsExplanation from '@/components/NounsExplanation.vue'
+import OldApp from './OldApp.vue'
 
 const paths = Array.from(
   { length: 43 },
@@ -47,6 +48,7 @@ const paths = Array.from(
     <ColoredSection class="bg-yellow-100 dark:bg-amber-950">
       <NounsExplanation />
     </ColoredSection>
+    <OldApp />
     <div class="flex-col gap-2">
       <img v-for="path in paths" :src="path" :key="path" />
     </div>

@@ -1,6 +1,5 @@
 <template>
   <div
-    :style="gridStyle"
     class="first-declension-grid grid grid-cols-[fit-content(100%)_repeat(10,fit-content(9%))] gap-x-2"
   >
     <div class="text-center [grid-area:a]">
