@@ -61,7 +61,7 @@ const prepositionsLayout = reactive(
 </script>
 
 <template>
-  <h2 class="px-4">Прийменники</h2>
+  <h2 class="px-4" id="prepositions">Прийменники</h2>
   <GridLayout v-model:layout="prepositionsLayout" :row-height="30">
     <GridItem
       v-for="item in prepositionsLayout"

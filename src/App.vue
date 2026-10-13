@@ -33,6 +33,7 @@ const paths = Array.from({ length: 43 }, (_, i) =>
         <li><a class="text-blue-900 dark:text-blue-50" href="#morphology">Морфологія</a></li>
         <li><a class="text-blue-900 dark:text-blue-50" href="#article">Артикль</a></li>
         <li><a class="text-blue-900 dark:text-blue-50" href="#nouns">Іменники</a></li>
+        <li><a class="text-blue-900 dark:text-blue-50" href="#prepositions">Прийменники</a></li>
       </ul>
     </section>
     <SectionHeader id="writing-and-pronunciation">Письмо і вимова</SectionHeader>
@@ -49,7 +50,7 @@ const paths = Array.from({ length: 43 }, (_, i) =>
     <ColoredSection class="bg-lime-50 dark:bg-lime-900">
       <ArticleExplanation />
     </ColoredSection>
-    <SectionHeader id="article">Іменники</SectionHeader>
+    <SectionHeader id="nouns">Іменники</SectionHeader>
     <ColoredSection class="bg-yellow-100 dark:bg-amber-950">
       <NounsExplanation />
     </ColoredSection>
