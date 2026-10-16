@@ -6,6 +6,7 @@ import PhoneticsExplanation from '@/components/PhoneticsExplanation.vue'
 import AccentExplanation from '@/components/AccentExplanation.vue'
 import ArticleExplanation from '@/components/ArticleExplanation.vue'
 import NounsExplanation from '@/components/NounsExplanation.vue'
+import TableOfContents from '@/components/TableOfContents.vue'
 import OldApp from './OldApp.vue'
 
 const resolvePublic = (path: string) => {
@@ -22,20 +23,7 @@ const paths = Array.from({ length: 43 }, (_, i) =>
 <template>
   <main class="container mx-auto px-2">
     <h1>Коротка граматика давньогрецької</h1>
-    <section>
-      <ul>
-        <li>
-          <a class="text-blue-900 dark:text-blue-50" href="#writing-and-pronunciation">
-            Письмо і вимова
-          </a>
-        </li>
-        <li><a class="text-blue-900 dark:text-blue-50" href="#accent">Наголос</a></li>
-        <li><a class="text-blue-900 dark:text-blue-50" href="#morphology">Морфологія</a></li>
-        <li><a class="text-blue-900 dark:text-blue-50" href="#article">Артикль</a></li>
-        <li><a class="text-blue-900 dark:text-blue-50" href="#nouns">Іменники</a></li>
-        <li><a class="text-blue-900 dark:text-blue-50" href="#prepositions">Прийменники</a></li>
-      </ul>
-    </section>
+    <TableOfContents />
     <SectionHeader id="writing-and-pronunciation">Письмо і вимова</SectionHeader>
     <ColoredSection class="bg-sky-100 dark:bg-sky-900">
       <AlphabetGrid />
