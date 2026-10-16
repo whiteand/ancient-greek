@@ -69,11 +69,12 @@
     <ThirdDeclensionEndingsTable />
   </div>
 
-  <p>
+  <div>
     <div class="grid grid-cols-[auto_1fr] gap-x-2">
       <div class="text-right">N.B. <Gr text="ἡ" /></div>
       <div class="text-left">
-        <Gr text="γυν**ή**" /> <em>жінка</em>, <Gr text="γυναικ**ός**, γυναικ**ί**, γυναῖκ**α**, γύναι" />
+        <Gr text="γυν**ή**" /> <em>жінка</em>,
+        <Gr text="γυναικ**ός**, γυναικ**ί**, γυναῖκ**α**, γύναι" />
       </div>
       <div class="text-right">
         <Gr text="αἱ" />
@@ -82,9 +83,56 @@
         <Gr text="γυναῖκ**ες**, γυναικ**ῶν**, γυναιξ**ί**, γυναῖκ**ας**, γυναῖκ**ες**." />
       </div>
     </div>
-  </p>
+  </div>
 
   <ThirdDeclensionDentalTable />
+
+  <ul class="list-disc pl-5">
+    <li>
+      Іменники на -<Gr text="ις" />, -<Gr text="υς" /> (<Gr text="χάρις, -τος" /> {{ ' '
+      }}<em>вдячність</em>; <Gr text="ἔρις, -δος" /> <em>чвара</em>; <Gr text="ὄρνῑς, -θος" />
+      {{ ' ' }}<em>птах</em>; <Gr text="κόρυς, -θος" /> <em>шолом</em>) з наголосом не на останньому
+      складі часто утворюють зн. одн. на -<Gr text="ιν" />, -<Gr text="υν" /> (<Gr
+        text="χάριν, κόρυν"
+      />).
+    </li>
+    <li>
+      Особливості: <Gr text="ὁ πούς, ποδός" /> <em>нога</em>, <Gr text="τὸ οὖς, ὠτός" /> {{ ' '
+      }}<em>вухо</em>, <Gr text="τὸ φῶς, φωτός" /> <em>світло</em>, <Gr text="τὸ γόνυ, γόνατος" />
+      {{ ' ' }}<em>коліно</em>, <Gr text="τὸ δόρυ, δόρατος" /> {{ ' ' }}<em>спис</em>,
+      <Gr text="τὸ ὕδωρ, ὕδατος" /> <em>вода</em>, <Gr text="ἡ νύξ, νυκτός" /> <em>ніч</em>.
+    </li>
+  </ul>
+
+  <ThirdDeclensionNasalLiquidTable />
+
+  <p>
+    До <em class="text-cyan-600 dark:text-cyan-400">n</em>-основ належать також іменники типу
+    <Gr text="ὁ Ἕλλην, -ηνος" /> та <Gr text="ὁ ποιμήν, -ένος" />.
+  </p>
+  <ul class="list-disc pl-5">
+    <li>
+      <Gr text="Ἀπόλλων, -ωνος" />, зн. <Gr text="Ἀπόλλω (-ωνα)" />, кл. <Gr text="Ἄπολλον" />;
+      <Gr text="Ποσειδῶν, -ῶνος" />, зн. <Gr text="Ποσειδῶ (-ῶνα)" />, кл. <Gr text="Πόσειδον" />;
+      <Gr text="ἡ Σαλαμῑ́ς, -ῖνος" />; <Gr text="ὁ δελφῑ́ς, -ῖνος" /> мають сигматичний називний.
+    </li>
+    <li>
+      <Gr text="ὁ / ἡ κύων" /> <em>пес</em>, <Gr text="κυνός, κυνί, κύνα, κύον" />;
+      <Gr text="οἱ / αἱ κύνες, κυνῶν, κυσί, κύνᾰς, κύνες" />.
+    </li>
+  </ul>
+  <p>
+    До <em class="text-cyan-600 dark:text-cyan-400">r</em>-основ належить також
+    <Gr text="ὁ μάρτυς, -υρος" /> <em>свідок</em> з дав. мн. <Gr text="μάρτυσι" />;
+    <Gr text="ἡ χείρ, -ός" /> <em>рука</em> має дав. мн. <Gr text="χερσί" />.
+  </p>
+  <ul class="list-disc pl-5">
+    <li>
+      Як <Gr text="μήτηρ" /> <em>мати</em> відмінюються також <Gr text="ὁ πατήρ" /> {{ ' '
+      }}<em>батько</em>, <Gr text="ἡ θυγάτηρ" /> <em>дочка</em> та <Gr text="ἡ γαστήρ" /> {{ ' '
+      }}<em>живіт</em>.
+    </li>
+  </ul>
 </template>
 
 <script setup lang="ts">
@@ -95,4 +143,5 @@ import SecondDeclensionTable from './SecondDeclensionTable.vue'
 import ThirdDeclensionVelarLabialTable from './ThirdDeclensionVelarLabialTable.vue'
 import ThirdDeclensionEndingsTable from './ThirdDeclensionEndingsTable.vue'
 import ThirdDeclensionDentalTable from './ThirdDeclensionDentalTable.vue'
+import ThirdDeclensionNasalLiquidTable from './ThirdDeclensionNasalLiquidTable.vue'
 </script>

@@ -1,6 +1,6 @@
 <template>
   <div
-    class="second-declension-grid mx-auto grid grid-cols-[fit-content(100%)_repeat(11,fit-content(9%))] gap-x-2 md:max-w-[37em]"
+    class="second-declension-grid mx-auto grid max-w-[14em] grid-cols-[fit-content(100%)_repeat(11,fit-content(9%))] gap-x-2 min-[27rem]:max-w-[27em] md:max-w-[37em]"
   >
     <div class="text-center [grid-area:h1] min-[27rem]:text-left">чол.</div>
     <div class="text-center [grid-area:h2] min-[27rem]:text-left">сер.</div>

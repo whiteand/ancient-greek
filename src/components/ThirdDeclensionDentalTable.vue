@@ -1,6 +1,6 @@
 <template>
   <div
-    class="third-declension-dental-grid mx-auto grid grid-cols-[fit-content(100%)_repeat(10,fit-content(10%))] gap-x-2 md:max-w-[38em]"
+    class="third-declension-dental-grid mx-auto grid max-w-[15em] grid-cols-[fit-content(100%)_repeat(10,fit-content(10%))] gap-x-2 min-[30em]:max-w-[30em] md:max-w-[38em]"
   >
     <div class="text-center [grid-area:h1] min-[30em]:text-left">
       в) на зубний

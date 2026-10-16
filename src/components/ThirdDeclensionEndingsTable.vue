@@ -1,6 +1,6 @@
 <template>
   <div
-    class="third-declension-endings-grid mx-auto grid grid-cols-[fit-content(100%)_fit-content(60%)_fit-content(30%)] gap-x-3 rounded border border-cyan-600 px-2 py-1 dark:border-cyan-400"
+    class="third-declension-endings-grid mx-auto grid max-w-[24em] grid-cols-[fit-content(100%)_fit-content(60%)_fit-content(30%)] gap-x-3 rounded border border-cyan-600 px-2 py-1 min-[26em]:max-w-[28em] dark:border-cyan-400"
   >
     <div class="text-center font-bold italic [grid-area:t]">Закінчення III відміни</div>
     <div class="italic [grid-area:h1]">чол. + жін.</div>

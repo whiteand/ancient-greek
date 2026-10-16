@@ -1,6 +1,6 @@
 <template>
   <div
-    class="third-declension-velar-labial-grid mx-auto grid grid-cols-[fit-content(100%)_repeat(6,fit-content(20%))] gap-x-2"
+    class="third-declension-velar-labial-grid mx-auto grid max-w-[15em] grid-cols-[fit-content(100%)_repeat(6,fit-content(20%))] gap-x-2 min-[30em]:max-w-[30em]"
   >
     <div class="text-center [grid-area:h1] min-[30em]:text-left">
       а) на задньоязиковий
