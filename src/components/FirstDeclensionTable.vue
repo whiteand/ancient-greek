@@ -1,6 +1,6 @@
 <template>
   <div
-    class="first-declension-grid grid grid-cols-[fit-content(100%)_repeat(10,fit-content(9%))] gap-x-2"
+    class="first-declension-grid mx-auto grid max-w-[13em] grid-cols-[fit-content(100%)_repeat(10,fit-content(9%))] gap-x-2 min-[27rem]:max-w-[26em] md:max-w-[35em]"
   >
     <div class="text-center [grid-area:a]">
       <Gr class="text-cyan-600 dark:text-cyan-300" text="ᾱ-" />основи
@@ -31,14 +31,14 @@
         </div>
       </template>
     </template>
-    <Gr class="[grid-area:i0]" text="ἡ" />
-    <Gr class="[grid-area:i1]" text="τῆς" />
-    <Gr class="[grid-area:i2]" text="τῇ" />
-    <Gr class="[grid-area:i3]" text="τήν" />
-    <Gr class="[grid-area:i4]" text="αἱ" />
-    <Gr class="[grid-area:i5]" text="τῶν" />
-    <Gr class="[grid-area:i6]" text="ταῖς" />
-    <Gr class="[grid-area:i7]" text="τᾱ́ς" />
+    <Gr class="text-right [grid-area:i0]" text="ἡ" />
+    <Gr class="text-right [grid-area:i1]" text="τῆς" />
+    <Gr class="text-right [grid-area:i2]" text="τῇ" />
+    <Gr class="text-right [grid-area:i3]" text="τήν" />
+    <Gr class="text-right [grid-area:i4]" text="αἱ" />
+    <Gr class="text-right [grid-area:i5]" text="τῶν" />
+    <Gr class="text-right [grid-area:i6]" text="ταῖς" />
+    <Gr class="text-right [grid-area:i7]" text="τᾱ́ς" />
 
     <Gr class="[grid-area:a0]" text="χώρ**ᾱ**" />
     <Gr class="[grid-area:a1]" text="χώρ**ᾱς**" />
@@ -49,7 +49,7 @@
     <Gr class="[grid-area:a6]" text="χώρ**αις**" />
     <Gr class="[grid-area:a7]" text="χώρ**ᾱς**" />
 
-    <Gr class="[grid-area:j]" text="ἡ" />
+    <Gr class="text-right [grid-area:j]" text="ἡ" />
     <Gr class="[grid-area:b0]" text="τῑμ**ή**" />
     <Gr class="[grid-area:b1]" text="τῑμ**ῆς**" />
     <Gr class="[grid-area:b2]" text="τῑμ**ῇ**" />
@@ -59,8 +59,8 @@
     <Gr class="[grid-area:b6]" text="τῑμ**αῖς**" />
     <Gr class="[grid-area:b7]" text="τῑμ**ᾱ́ς**" />
 
-    <Gr class="[grid-area:k0]" text="ὁ" />
-    <Gr class="[grid-area:k1]" text="οἱ" />
+    <Gr class="text-right [grid-area:k0]" text="ὁ" />
+    <Gr class="text-right [grid-area:k1]" text="οἱ" />
 
     <Gr class="[grid-area:c0]" text="ποιητ**ής**" />
     <Gr class="[grid-area:c1]" text="ποιητ**οῦ**" />
@@ -71,7 +71,7 @@
     <Gr class="[grid-area:c6]" text="ποιητ**αῖς**" />
     <Gr class="[grid-area:c7]" text="ποιητ**ᾱ́ς**" />
 
-    <Gr class="[grid-area:l]" text="ἡ" />
+    <Gr class="text-right [grid-area:l]" text="ἡ" />
 
     <Gr class="[grid-area:d0]" text="σφαῖρ**ᾰ**" />
     <Gr class="[grid-area:d1]" text="σφαίρ**ᾱς**" />
@@ -82,7 +82,7 @@
     <Gr class="[grid-area:d6]" text="σφαίρ**αις**" />
     <Gr class="[grid-area:d7]" text="σφαίρ**ᾱς**" />
 
-    <Gr class="[grid-area:m]" text="ἡ" />
+    <Gr class="text-right [grid-area:m]" text="ἡ" />
 
     <Gr class="[grid-area:e0]" text="θάλαττ**ᾰ**" />
     <Gr class="[grid-area:e1]" text="θαλάττ**ης**" />

@@ -54,7 +54,9 @@ const paths = Array.from({ length: 43 }, (_, i) =>
     <ColoredSection class="bg-yellow-100 dark:bg-amber-950">
       <NounsExplanation />
     </ColoredSection>
-    <OldApp />
+    <div class="w-full overflow-scroll">
+      <OldApp />
+    </div>
     <div class="flex-col gap-2">
       <img v-for="path in paths" :src="path" :key="path" />
     </div>

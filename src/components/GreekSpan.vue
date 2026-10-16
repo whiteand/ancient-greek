@@ -3,7 +3,7 @@
     <TextWithHighlights
       :text="groups.text"
       :highlights="groups.highlights"
-      :highlight-class="props.highlightClass ?? 'text-pink-500 dark:text-pink-400'"
+      :highlight-class="props.highlightClass ?? 'font-medium text-pink-500 dark:text-pink-400'"
     />
   </span>
 </template>
