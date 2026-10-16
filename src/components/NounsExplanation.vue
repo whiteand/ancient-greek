@@ -54,6 +54,37 @@
     Так звана аттична відміна: <Gr text="ὁ νεώς" /> (&lt; <Gr text="νηός" />) <em>храм</em>,
     <Gr text="νεώ, νεῴ, νεών" />; мн. <Gr text="νεῴ, νεών, νεῴς, νεώς" />.
   </p>
+
+  <SectionSubheader id="third-declension">III відміна</SectionSubheader>
+
+  <p>
+    <strong>Приголосні основи</strong> (основу отримуємо, відкинувши закінчення -<Gr text="ος" />
+    род. одн.) закінчуються на:
+  </p>
+
+  <div
+    class="flex flex-col items-center gap-4 lg:flex-row lg:items-start lg:justify-center lg:gap-8"
+  >
+    <ThirdDeclensionVelarLabialTable />
+    <ThirdDeclensionEndingsTable />
+  </div>
+
+  <p>
+    <div class="grid grid-cols-[auto_1fr] gap-x-2">
+      <div class="text-right">N.B. <Gr text="ἡ" /></div>
+      <div class="text-left">
+        <Gr text="γυν**ή**" /> <em>жінка</em>, <Gr text="γυναικ**ός**, γυναικ**ί**, γυναῖκ**α**, γύναι" />
+      </div>
+      <div class="text-right">
+        <Gr text="αἱ" />
+      </div>
+      <div class="text-left">
+        <Gr text="γυναῖκ**ες**, γυναικ**ῶν**, γυναιξ**ί**, γυναῖκ**ας**, γυναῖκ**ες**." />
+      </div>
+    </div>
+  </p>
+
+  <ThirdDeclensionDentalTable />
 </template>
 
 <script setup lang="ts">
@@ -61,4 +92,7 @@ import Gr from './GreekSpan.vue'
 import SectionSubheader from './SectionSubheader.vue'
 import FirstDeclensionTable from './FirstDeclensionTable.vue'
 import SecondDeclensionTable from './SecondDeclensionTable.vue'
+import ThirdDeclensionVelarLabialTable from './ThirdDeclensionVelarLabialTable.vue'
+import ThirdDeclensionEndingsTable from './ThirdDeclensionEndingsTable.vue'
+import ThirdDeclensionDentalTable from './ThirdDeclensionDentalTable.vue'
 </script>
