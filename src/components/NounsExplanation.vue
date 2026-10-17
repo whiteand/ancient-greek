@@ -133,6 +133,20 @@
       }}<em>живіт</em>.
     </li>
   </ul>
+
+  <div
+    class="flex flex-col items-center gap-4 lg:flex-row lg:items-start lg:justify-center lg:gap-8"
+  >
+    <ThirdDeclensionSigmaTable />
+    <div
+      class="mx-auto max-w-[22em] rounded border border-cyan-600 bg-yellow-100 px-2 py-1 lg:max-w-[20em] dark:border-cyan-400 dark:bg-amber-950"
+    >
+      <strong>Більшість відмінкових закінчень</strong> виникла <strong>стягненням</strong>, тож
+      первісна основа вже не простежується (<Gr text="γενοσ- / γενεσ-, Σωκρατεσ-, Περικλεεσ-" />):
+      напр. род. мн. {{ ' ' }}<Gr text="γενεσων > γενῶν" />. Основа не простежується й у голосних
+      основах.
+    </div>
+  </div>
 </template>
 
 <script setup lang="ts">
@@ -144,4 +158,5 @@ import ThirdDeclensionVelarLabialTable from './ThirdDeclensionVelarLabialTable.v
 import ThirdDeclensionEndingsTable from './ThirdDeclensionEndingsTable.vue'
 import ThirdDeclensionDentalTable from './ThirdDeclensionDentalTable.vue'
 import ThirdDeclensionNasalLiquidTable from './ThirdDeclensionNasalLiquidTable.vue'
+import ThirdDeclensionSigmaTable from './ThirdDeclensionSigmaTable.vue'
 </script>
