@@ -32,6 +32,7 @@ const ITEMS: TocItem[] = [
       { id: 'first-declension', title: 'I відміна' },
       { id: 'second-declension', title: 'II відміна' },
       { id: 'third-declension', title: 'III відміна' },
+      { id: 'third-declension-vowel-stems', title: 'Голосні основи' },
     ],
   },
   { id: 'prepositions', title: 'Прийменники' },
