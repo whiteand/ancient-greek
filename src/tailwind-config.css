@@ -1,4 +1,7 @@
-@import "tailwindcss";
+@import 'tailwindcss';
 
 @source not '../AGENTS.md';
 @source not '../README.md';
+@source not '../TODO.md';
+@source not '../work';
+@source not '../scripts';

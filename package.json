@@ -13,7 +13,15 @@
     "lint": "run-s lint:*",
     "lint:oxlint": "oxlint . --fix",
     "lint:eslint": "eslint . --fix --cache",
-    "format": "oxfmt src/"
+    "format": "oxfmt src/ scripts/",
+    "check": "run-s check:*",
+    "check:format": "oxfmt --check src/components src/App.vue scripts/",
+    "check:lint": "oxlint . && eslint . --cache",
+    "check:types": "vue-tsc --build",
+    "check:greek": "node scripts/check-greek.ts",
+    "check:build": "vite build",
+    "scan": "node scripts/run-todo.ts",
+    "scan:auth": "node scripts/check-api-key.ts"
   },
   "dependencies": {
     "@tailwindcss/vite": "^4.3.3",
@@ -26,6 +34,7 @@
     "vue-router": "^5.0.4"
   },
   "devDependencies": {
+    "@cursor/sdk": "^1.0.38",
     "@emnapi/core": "^1.11.1",
     "@emnapi/runtime": "^1.11.1",
     "@tsconfig/node24": "^24.0.4",
