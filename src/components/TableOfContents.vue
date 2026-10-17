@@ -36,6 +36,11 @@ const ITEMS: TocItem[] = [
       { id: 'dual', title: 'Двоїна' },
     ],
   },
+  {
+    id: 'adjectives',
+    title: 'Прикметники',
+    children: [{ id: 'adjectives-ii-i', title: 'Прикметники II та I відміни' }],
+  },
   { id: 'prepositions', title: 'Прийменники' },
 ]
 </script>
