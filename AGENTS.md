@@ -27,19 +27,61 @@ version and the yet-unprocessed scans. They stay until everything is rebuilt.
 - `npm run build` — type-check + Vite build. Deployed to GitHub Pages at
   https://whiteand.github.io/ancient-greek/ (base path `/ancient-greek/`, set in `vite.config.ts`
   when `GITHUB_ACTIONS` is defined; workflow in `.github/workflows/deploy.yml`, Node 24).
+- `npm run check` — the single gate before a commit: format check (`src/components`, `src/App.vue`,
+  `scripts`), oxlint + eslint, types, `scripts/check-greek.ts`, Vite build. Must pass.
+- `node scripts/check-greek.ts` — Greek/structure lint: `<Gr text>` must be NFC, only Greek +
+  allowed marks, no Latin letters inside Greek words, balanced `**`; every `SectionHeader`/
+  `SectionSubheader` id must be in `TableOfContents.vue`; inline `<Gr>`/`<em>`/`<strong>`
+  siblings split across lines need `{{ ' ' }}`.
+- `scripts/crop-scans.sh NN` — 2× tiles of a scan into `/tmp/scans/NN/` (`full@2x.png`,
+  `rR-cC.png`, `rR-full.png`). Read these instead of the raw scan.
 - Public assets must be resolved via `import.meta.env.BASE_URL` (see `resolvePublic` in `App.vue`).
+- Tailwind v4 scans every non-ignored file for class names. Docs/notes that mention class-like
+  strings (`AGENTS.md`, `TODO.md`, `work/`, `scripts/`) are excluded in `src/tailwind-config.css`
+  via `@source not`; add new non-source folders there.
+
+## Pipeline: one scan = one branch = one PR
+
+`TODO.md` lists the unprocessed scans in page order. They are processed strictly one at a time,
+sequentially (they all edit `NounsExplanation.vue`, `TableOfContents.vue`, `App.vue`), on a branch
+`scan/NN`, and every stage leaves a checkpoint file in `work/NN/` that is committed on the branch.
+A new agent (or `npm run scan` after a crash) resumes from the first missing file:
+
+| stage | output | prompt | who |
+|---|---|---|---|
+| 1 | `work/NN/a.md` | `scripts/prompts/01-transcribe.md` | blind transcription, model A |
+| 2 | `work/NN/b.md` | same prompt | blind transcription, model B (different family) — parallel with 1 |
+| 3 | `work/NN/diff.md`, `final.md` | `scripts/prompts/02-reconcile.md` | diff A↔B against the scan; unresolved spots `(?)` + "Сумніви" |
+| 4 | `work/NN/build.md` | `scripts/prompts/03-build.md` | components + translation from `final.md` only, `npm run check`, screenshots |
+
+Rules:
+- Stage 1/2 agents never read `src/` or any other `work/` file. Stage 4 never reads `a.md`/`b.md`
+  and never re-transcribes: `final.md` is the only source for Greek. Suspected errors in `final.md`
+  go into `build.md` → "Сумнівні місця", not silently into the component.
+- `TODO.md` is ticked in stage 4 on the branch, so it becomes done when the PR merges.
+- The PR is opened by a human after reading `final.md` → "Сумніви" next to the scan and
+  `build.md` + the screenshots. Nothing is pushed automatically.
+- `npm run scan [NN] [--redo <stage>] [--list]` runs the stages via the Cursor SDK
+  (`CURSOR_API_KEY` in `.env.local`, which is gitignored; `SCAN_MODEL_A`/`SCAN_MODEL_B`);
+  `npm run scan:auth` verifies the key. The same prompts are used when the stages are run by
+  hand with subagents.
 
 ## Workflow for adding a scan (`public/foreign/NN.png`)
 
-1. **Read the image**, then zoom: crop regions with `sips` into `/tmp` and read the crops.
-   Accents, breathings, macrons (ᾱ ῑ ῡ), breves (ᾰ ῐ ῠ), iota subscripts and combined marks
-   (e.g. `γῡ́ψ` = macron + acute, `ᾱ́`) are easy to misread at native resolution. Always verify.
-2. **Transcribe** the Czech + Greek faithfully, then **translate the Czech to Ukrainian**.
-   Keep Greek exactly as printed (including which letters are pink = endings).
+(This is what stage 4 does; stages 1–3 produce the transcription it works from.)
+
+1. **Read the image** via the tiles in `/tmp/scans/NN/` (`scripts/crop-scans.sh NN`), and zoom
+   further with `sips` crops into `/tmp` where needed. Accents, breathings, macrons (ᾱ ῑ ῡ),
+   breves (ᾰ ῐ ῠ), iota subscripts and combined marks (e.g. `γῡ́ψ` = macron + acute, `ᾱ́`) are
+   easy to misread at native resolution. Always verify. (`sips` ignores a crop whose Y offset is
+   non-zero and X offset is 0 — use X=1.)
+2. **Transcribe** the Czech + Greek faithfully (in the pipeline: take `work/NN/final.md`), then
+   **translate the Czech to Ukrainian**. Keep Greek exactly as printed (including which letters
+   are pink = endings).
 3. **Build a table component** (see conventions below) and **wire it into the relevant
    `*Explanation.vue`** together with translated paragraphs.
 4. Add an `id` to any new `SectionSubheader` and register it in `TableOfContents.vue`.
-5. Run formatter, linters, type-check.
+5. Run `npm run check` (formatter check, linters, types, Greek lint, build) and fix everything.
 6. **Verify in headless Chrome** (see "Verification").
 7. Delete every temp file you created (`/tmp/*.png`, anything placed in `public/` for probing).
 
@@ -128,3 +170,5 @@ printf '<!doctype html><body style="margin:0"><iframe src="http://localhost:5173
 - Don't "fix" Greek forms to match dictionaries — reproduce the source scan; flag doubts in the summary instead.
 - Don't restyle existing tables when adding a new one; match the existing pattern, including the
   user's adjustments (`mx-auto`, `max-w-*`, right-aligned articles, grave accents on articles).
+- Don't work on two scans at once or out of `TODO.md` order; don't skip stages of the pipeline.
+- Don't commit `.env.local` or any API key.
