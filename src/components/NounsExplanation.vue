@@ -147,6 +147,33 @@
       основах.
     </div>
   </div>
+
+  <SectionSubheader id="third-declension-vowel-stems">Голосні основи</SectionSubheader>
+  <ThirdDeclensionVowelTable />
+
+  <div
+    class="flex flex-col items-center gap-4 lg:flex-row lg:items-start lg:justify-center lg:gap-8"
+  >
+    <ul class="mx-auto list-disc pl-5 lg:mx-0 lg:max-w-[34em]">
+      <li>
+        Іменники на <Gr class="text-cyan-600 dark:text-cyan-400" text="-ις" /> {{ ' ' }}бувають жін.
+        роду, на <Gr class="text-cyan-600 dark:text-cyan-400" text="-εύς" /> {{ ' ' }}— чол. роду.
+      </li>
+      <li>
+        До односкладових дифтонгічних основ на
+        <Gr class="text-cyan-600 dark:text-cyan-400" text="-αυ" />,
+        <Gr class="text-cyan-600 dark:text-cyan-400" text="-ου" /> {{ ' ' }}належать і
+        <em class="text-cyan-600 dark:text-cyan-400">eu</em>-основи: {{ ' '
+        }}<Gr text="Ζεύς, Διός, Διΐ, Δία, Ζεῦ" />.
+      </li>
+      <li>
+        Основи на <Gr class="text-cyan-600 dark:text-cyan-400" text="-ω" /> {{ ' ' }}і
+        <Gr class="text-cyan-600 dark:text-cyan-400" text="-οι" /> {{ ' ' }}— переважно жіночі імена
+        з наголосом на останньому складі: {{ ' ' }}<Gr text="᾿Αργῶ, Σαπφώ" />.
+      </li>
+    </ul>
+    <ThirdDeclensionOmegaTable />
+  </div>
 </template>
 
 <script setup lang="ts">
@@ -159,4 +186,6 @@ import ThirdDeclensionEndingsTable from './ThirdDeclensionEndingsTable.vue'
 import ThirdDeclensionDentalTable from './ThirdDeclensionDentalTable.vue'
 import ThirdDeclensionNasalLiquidTable from './ThirdDeclensionNasalLiquidTable.vue'
 import ThirdDeclensionSigmaTable from './ThirdDeclensionSigmaTable.vue'
+import ThirdDeclensionVowelTable from './ThirdDeclensionVowelTable.vue'
+import ThirdDeclensionOmegaTable from './ThirdDeclensionOmegaTable.vue'
 </script>
