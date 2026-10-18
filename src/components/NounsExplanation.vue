@@ -174,6 +174,13 @@
     </ul>
     <ThirdDeclensionOmegaTable />
   </div>
+
+  <SectionSubheader id="dual">Двоїна</SectionSubheader>
+  <p>
+    <strong>Двоїна</strong> (двоїне число) позначає саме дві сутності; вживається в аттичному
+    діалекті, але не цілком послідовно:
+  </p>
+  <DualDeclensionTable />
 </template>
 
 <script setup lang="ts">
@@ -188,4 +195,5 @@ import ThirdDeclensionNasalLiquidTable from './ThirdDeclensionNasalLiquidTable.v
 import ThirdDeclensionSigmaTable from './ThirdDeclensionSigmaTable.vue'
 import ThirdDeclensionVowelTable from './ThirdDeclensionVowelTable.vue'
 import ThirdDeclensionOmegaTable from './ThirdDeclensionOmegaTable.vue'
+import DualDeclensionTable from './DualDeclensionTable.vue'
 </script>
