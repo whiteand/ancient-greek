@@ -83,6 +83,70 @@
     жін. <Gr text="μέλαινα, μελαίνης" />, сер. <Gr text="μέλᾰν, μέλᾰνος" /> {{ ' '
     }}<em>чорний</em>.
   </p>
+  <p>
+    <span class="font-bold">е) прикметники з двома основами:</span>
+    {{ ' ' }}
+    <Gr text="πολύς, πολλή, πολύ" />
+    {{ ' ' }}<em>численний</em> і <Gr text="μέγας, μεγάλη, μέγα" /> {{ ' '
+    }}<em>великий</em> утворюють в одн. за III відміною: наз. + кл. чол. <Gr text="πολύς, μέγας" />,
+    зн. <Gr text="πολύν, μέγαν" />; наз.+ зн.+ кл. сер. <Gr text="πολύ, μέγα" />. Решта форм
+    регулярні за I та II відміною: род. одн. <Gr text="μεγάλου, μεγάλης, μεγάλου" />;
+    <Gr text="πολλοῦ, πολλῆς, πολλοῦ" />
+    тощо.
+  </p>
+
+  <SectionSubheader id="adjectives-comparison">Ступені порівняння</SectionSubheader>
+  <p>
+    <span class="font-bold">а)</span> За допомогою суфіксів <Gr text="**-τερος**" />, {{ ' '
+    }}<Gr text="**-τέρᾱ**" />, {{ ' ' }}<Gr text="**-τερον**" /> для вищого ступеня і
+    <Gr text="**-τατος**" />, {{ ' ' }}<Gr text="**-τάτη**" />, {{ ' ' }}<Gr text="**-τατον**" />
+    для найвищого ступеня (приєднуються до основи чоловічого роду):
+  </p>
+  <RegularAdjectiveComparisonTable />
+  <ul class="list-disc pl-5">
+    <li>
+      Якщо в
+      <span class="whitespace-nowrap"
+        ><em class="text-cyan-600 dark:text-cyan-400">ŏ-</em>основах</span
+      >
+      склад перед закінченням короткий, відбувається подовження осн. -o &gt;
+      <Gr text="-ω" />: <Gr text="**σο**φός" />, {{ ' ' }}<Gr text="σοφ**ώ**τερος" />, {{ ' '
+      }}<Gr text="σοφ**ώ**τατος" /> {{ ' ' }}<em>мудрий</em>; але
+      <Gr text="φίλος, φίλτερος, φίλτατος" /> {{ ' ' }}<em>милий</em>.
+    </li>
+    <li>
+      Закінчення <Gr text="-έσ-τερος" />, <Gr text="-έσ-τατος" /> (за
+      <span class="whitespace-nowrap"
+        ><em class="text-cyan-600 dark:text-cyan-400">s-</em>основами</span
+      >) переноситься на:
+      <ul class="list-none pl-4">
+        <li>
+          – прикметники двох закінчень на <Gr text="-ων, -ον" />:
+          <Gr text="εὐδαίμων, εὐδαιμονέστερος, εὐδαιμονέστατος" />
+          {{ ' ' }}<em>блаженний</em>
+        </li>
+        <li>
+          – стягнені прикметники двох закінчень II відміни на <Gr text="-ους" />:
+          <Gr text="εὔνους, εὐνούστερος, εὐνούστατος" />
+          {{ ' ' }}<em>прихильний</em>
+        </li>
+      </ul>
+    </li>
+  </ul>
+  <p>
+    <span class="font-bold">б)</span> За допомогою суфіксів <Gr text="**-ῑ́ων**" />, {{ ' '
+    }}<Gr text="**-ῑον**" /> для вищого ступеня і <Gr text="**-ιστος**" />, {{ ' '
+    }}<Gr text="**-ίστη**" />, {{ ' ' }}<Gr text="**-ιστον**" /> для найвищого ступеня:
+  </p>
+  <IonAdjectiveComparisonTable />
+  <p>
+    Вищі ступені відмінюються як прикметники двох закінчень <Gr text="εὐδαίμων,-ον" />, але в зн.
+    одн. чол.+ жін., у наз., зн. і кл. мн. сер. частіше вживається форма на <Gr text="-ῑ́ω" /> (<Gr
+      text="κακῑ́ω"
+    />), а в наз. і зн. мн. чол. +жін. форма на <Gr text="-ῑ́ους" /> (<Gr text="κακῑ́ους" />).
+  </p>
+  <p><span class="font-bold">в)</span> Ступенювання <span class="font-bold">різноосновне</span></p>
+  <SuppletiveAdjectiveComparisonTable />
 </template>
 
 <script setup lang="ts">
@@ -90,4 +154,7 @@ import Gr from './GreekSpan.vue'
 import SectionSubheader from './SectionSubheader.vue'
 import ThirdDeclensionNtAdjectiveTable from './ThirdDeclensionNtAdjectiveTable.vue'
 import ThirdDeclensionNasalSigmaUpsilonAdjectiveTable from './ThirdDeclensionNasalSigmaUpsilonAdjectiveTable.vue'
+import RegularAdjectiveComparisonTable from './RegularAdjectiveComparisonTable.vue'
+import IonAdjectiveComparisonTable from './IonAdjectiveComparisonTable.vue'
+import SuppletiveAdjectiveComparisonTable from './SuppletiveAdjectiveComparisonTable.vue'
 </script>
