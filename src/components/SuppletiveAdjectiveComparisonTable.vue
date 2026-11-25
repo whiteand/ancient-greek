@@ -17,7 +17,7 @@
     <Gr class="whitespace-nowrap [grid-area:c1]" text="κρείττων, κρεῖττον" />
     <em class="[grid-area:g1]">сильніший</em>
     <Gr class="whitespace-nowrap [grid-area:s1]" text="κράτιστος" />
-    <Gr class="whitespace-nowrap [grid-area:d1]" text="λῷων, λῷον" />
+    <Gr class="whitespace-nowrap [grid-area:d1]" text="λῴων, λῷον" />
     <em class="[grid-area:h1]">корисніший</em>
     <Gr class="whitespace-nowrap [grid-area:r1]" text="λῷστος" />
 
