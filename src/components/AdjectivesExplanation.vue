@@ -121,7 +121,7 @@
       Закінчення <Gr text="-έσ-τερος" />, <Gr text="-έσ-τατος" /> (за
       <span class="whitespace-nowrap"
         ><em class="text-cyan-600 dark:text-cyan-400">s-</em>основами</span
-      >) переноситься на:
+      >) переносяться на:
       <ul class="list-none pl-4">
         <li>
           – прикметники двох закінчень на <Gr text="-ων, -ον" />:
