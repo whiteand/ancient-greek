@@ -54,7 +54,7 @@
     <Gr class="whitespace-nowrap [grid-area:r1]" text="μέγιστος" />
 
     <Gr class="whitespace-nowrap [grid-area:b2]" text="πολύς" />
-    <em class="[grid-area:h2]">многий</em>
+    <em class="[grid-area:h2]">численний</em>
     <div class="[grid-area:v2]">~</div>
     <Gr class="whitespace-nowrap [grid-area:d2]" text="πλείων, πλέον" />
     <div class="[grid-area:w2]">~</div>
