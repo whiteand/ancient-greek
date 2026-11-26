@@ -13,6 +13,14 @@
   </p>
   <SectionSubheader id="adverbs-comparison">Ступенювання прислівників</SectionSubheader>
   <AdverbDegreeFormation />
+  <p>
+    Винятки: прислівники місця на <Gr text="-ω" /> зберігають <Gr text="-ω" /> і у ступенях (<Gr
+      text="ἄνω"
+    />
+    {{ ' ' }}<em>вгорі</em>, <Gr text="ἀνωτέρω" />, <Gr text="ἀνωτάτω" />); зрідка вищий ступінь має
+    <Gr text="-ως" /> (<Gr text="ἀσφαλεστέρως" /> поряд з <Gr text="ἀσφαλέστερον" /> {{ ' '
+    }}<em>надійніше</em>).
+  </p>
 </template>
 
 <script setup lang="ts">
