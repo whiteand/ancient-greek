@@ -42,6 +42,7 @@ const ITEMS: TocItem[] = [
     children: [
       { id: 'adjectives-ii-i', title: 'Прикметники II та I відміни' },
       { id: 'adjectives-iii', title: 'Прикметники III відміни' },
+      { id: 'adjectives-comparison', title: 'Ступені порівняння' },
     ],
   },
   { id: 'prepositions', title: 'Прийменники' },
