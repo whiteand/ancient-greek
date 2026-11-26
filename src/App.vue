@@ -7,6 +7,7 @@ import AccentExplanation from '@/components/AccentExplanation.vue'
 import ArticleExplanation from '@/components/ArticleExplanation.vue'
 import NounsExplanation from '@/components/NounsExplanation.vue'
 import AdjectivesExplanation from '@/components/AdjectivesExplanation.vue'
+import AdverbsExplanation from '@/components/AdverbsExplanation.vue'
 import TableOfContents from '@/components/TableOfContents.vue'
 import OldApp from './OldApp.vue'
 
@@ -46,6 +47,10 @@ const paths = Array.from({ length: 43 }, (_, i) =>
     <SectionHeader id="adjectives">Прикметники</SectionHeader>
     <ColoredSection class="bg-emerald-50 dark:bg-emerald-950">
       <AdjectivesExplanation />
+    </ColoredSection>
+    <SectionHeader id="adverbs">Прислівники</SectionHeader>
+    <ColoredSection class="bg-cyan-100 dark:bg-cyan-950">
+      <AdverbsExplanation />
     </ColoredSection>
     <div class="w-full overflow-scroll">
       <OldApp />
