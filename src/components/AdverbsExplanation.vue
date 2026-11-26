@@ -6,6 +6,11 @@
     вихідного прикметника:
   </p>
   <AdverbFormationExamples />
+  <p>
+    Так утворюються прислівники способу дії. Деякі прислівники від прикметників мають іншу форму:
+    <Gr text="εὖ" /> {{ ' ' }}<em>добре</em> (від <Gr text="ἀγαθός" />), <Gr text="πολύ" /> {{ ' '
+    }}<em>багато</em> (зн. одн. сер.).
+  </p>
   <SectionSubheader id="adverbs-comparison">Ступенювання прислівників</SectionSubheader>
   <AdverbDegreeFormation />
 </template>
