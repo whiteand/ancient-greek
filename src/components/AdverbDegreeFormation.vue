@@ -3,7 +3,8 @@
     <div class="whitespace-nowrap [grid-area:c0]">вищий ступінь</div>
     <div class="[grid-area:e0]">=</div>
     <div class="min-w-0 [grid-area:d0]">
-      зн. одн. сер. вищого ступеня прикметника на {{ ' ' }} <Gr text="**-ον**" />: {{ ' ' }}
+      зн. одн. сер. вищого ступеня прикметника (закінчення {{ ' ' }}<Gr text="**-ον**" />):
+      {{ ' ' }}
       <span class="whitespace-nowrap">
         <Gr class="whitespace-nowrap" text="δικαιότερ**ον**," /> {{ ' ' }}
         <Gr class="whitespace-nowrap" text="ἥδῑ**ον**" />
@@ -12,7 +13,8 @@
     <div class="whitespace-nowrap [grid-area:c1]">найвищий ступінь</div>
     <div class="[grid-area:e1]">=</div>
     <div class="min-w-0 [grid-area:d1]">
-      зн. мн. сер. найвищого ступеня прикметника на {{ ' ' }} <Gr text="**-τα**" />: {{ ' ' }}
+      зн. мн. сер. найвищого ступеня прикметника (закінчення {{ ' ' }}<Gr text="**-τα**" />):
+      {{ ' ' }}
       <span class="whitespace-nowrap">
         <Gr class="whitespace-nowrap" text="δικαιότα**τα**," /> {{ ' ' }}
         <Gr class="whitespace-nowrap" text="ἥδισ**τα**" />
