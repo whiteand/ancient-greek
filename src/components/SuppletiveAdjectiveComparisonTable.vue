@@ -38,7 +38,7 @@
     <em class="[grid-area:g4]">менший</em>
     <Gr class="whitespace-nowrap [grid-area:s4]" text="ἐλάχιστος" />
     <Gr class="whitespace-nowrap [grid-area:d4]" text="μείων, μεῖον" />
-    <em class="[grid-area:h4]">кількісно слабший</em>
+    <em class="[grid-area:h4]">менш численний</em>
 
     <Gr class="whitespace-nowrap [grid-area:c5]" text="μῑκρότερος,-ᾱ, -ον" />
     <em class="[grid-area:g5]">менший</em>
