@@ -50,6 +50,11 @@ const ITEMS: TocItem[] = [
     title: 'Прислівники',
     children: [{ id: 'adverbs-comparison', title: 'Ступенювання прислівників' }],
   },
+  {
+    id: 'pronouns',
+    title: 'Займенники',
+    children: [{ id: 'pronouns-personal', title: 'Особові займенники' }],
+  },
   { id: 'prepositions', title: 'Прийменники' },
 ]
 </script>
