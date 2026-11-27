@@ -48,7 +48,7 @@
         </template>
         <div class="[grid-area:b0]">–</div>
         <Gr class="[grid-area:b1]" text="ἐμαυτοῦ,-ῆς" />
-        <Gr class="[grid-area:b2]" text="ἐμαυτῶ,-ῆ" />
+        <Gr class="[grid-area:b2]" text="ἐμαυτῷ,-ῇ" />
         <Gr class="[grid-area:b3]" text="ἐμαυτόν,-ήν" />
         <div class="[grid-area:b4]">–</div>
         <Gr class="[grid-area:b5]" text="ἡμῶν αὐτῶν" />
@@ -105,7 +105,7 @@
         </template>
         <div class="[grid-area:d0]">–</div>
         <Gr class="[grid-area:d1]" text="σεαυτοῦ,-ῆς" />
-        <Gr class="[grid-area:d2]" text="σεαυτῶ,-ῆ" />
+        <Gr class="[grid-area:d2]" text="σεαυτῷ,-ῇ" />
         <Gr class="[grid-area:d3]" text="σεαυτόν,-ήν" />
         <div class="[grid-area:d4]">–</div>
         <Gr class="[grid-area:d5]" text="ὑμῶν αὐτῶν" />
@@ -156,7 +156,7 @@
           {{ ' ' }}
           <em class="text-cyan-600 not-italic dark:text-cyan-400">себе</em>
         </div>
-        <Gr class="[grid-area:f2]" text="ἑαυτῶ,-ῆ,-ῶ" />
+        <Gr class="[grid-area:f2]" text="ἑαυτῷ,-ῇ,-ῷ" />
         <Gr class="[grid-area:f3]" text="ἑαυτόν,-ήν,-ό" />
         <div class="[grid-area:f4]">–</div>
         <Gr class="[grid-area:f5]" text="σφῶν αὐτῶν/ἑαυτῶν" />
